@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		844304AB1713FC3500EBCBA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304AA1713FC3500EBCBA7 /* Foundation.framework */; };
-		844304B01713FC3600EBCBA7 /* DiscogsAPI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 844304AF1713FC3600EBCBA7 /* DiscogsAPI.h */; };
-		844304B21713FC3600EBCBA7 /* DiscogsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 844304B11713FC3600EBCBA7 /* DiscogsAPI.m */; };
+		844304CD1714079300EBCBA7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304CC1714079300EBCBA7 /* SenTestingKit.framework */; };
+		844304CF1714079300EBCBA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304CE1714079300EBCBA7 /* UIKit.framework */; };
+		844304D01714079300EBCBA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304AA1713FC3500EBCBA7 /* Foundation.framework */; };
+		844304D61714079300EBCBA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 844304D41714079300EBCBA7 /* InfoPlist.strings */; };
+		844304DE171407EE00EBCBA7 /* libDiscogsAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304A71713FC3500EBCBA7 /* libDiscogsAPI.a */; };
+		844304E5171415E000EBCBA7 /* DataProviderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 844304E4171415E000EBCBA7 /* DataProviderTest.m */; };
+		844304E91714188A00EBCBA7 /* NSURLDataProviderAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = 844304E81714188A00EBCBA7 /* NSURLDataProviderAsync.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -19,7 +24,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				844304B01713FC3600EBCBA7 /* DiscogsAPI.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -29,8 +33,16 @@
 		844304A71713FC3500EBCBA7 /* libDiscogsAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDiscogsAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		844304AA1713FC3500EBCBA7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		844304AE1713FC3600EBCBA7 /* DiscogsAPI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiscogsAPI-Prefix.pch"; sourceTree = "<group>"; };
-		844304AF1713FC3600EBCBA7 /* DiscogsAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscogsAPI.h; sourceTree = "<group>"; };
-		844304B11713FC3600EBCBA7 /* DiscogsAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscogsAPI.m; sourceTree = "<group>"; };
+		844304CB1714079300EBCBA7 /* DiscogsAPITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiscogsAPITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		844304CC1714079300EBCBA7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		844304CE1714079300EBCBA7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		844304D31714079300EBCBA7 /* DiscogsAPITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DiscogsAPITests-Info.plist"; sourceTree = "<group>"; };
+		844304D51714079300EBCBA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		844304DA1714079300EBCBA7 /* DiscogsAPITests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiscogsAPITests-Prefix.pch"; sourceTree = "<group>"; };
+		844304E4171415E000EBCBA7 /* DataProviderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderTest.m; sourceTree = "<group>"; };
+		844304E61714185800EBCBA7 /* DataProviderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderDelegate.h; sourceTree = "<group>"; };
+		844304E71714188A00EBCBA7 /* NSURLDataProviderAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLDataProviderAsync.h; sourceTree = "<group>"; };
+		844304E81714188A00EBCBA7 /* NSURLDataProviderAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLDataProviderAsync.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +54,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		844304C71714079300EBCBA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844304DE171407EE00EBCBA7 /* libDiscogsAPI.a in Frameworks */,
+				844304CD1714079300EBCBA7 /* SenTestingKit.framework in Frameworks */,
+				844304CF1714079300EBCBA7 /* UIKit.framework in Frameworks */,
+				844304D01714079300EBCBA7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -49,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				844304AC1713FC3500EBCBA7 /* DiscogsAPI */,
+				844304D11714079300EBCBA7 /* DiscogsAPITests */,
 				844304A91713FC3500EBCBA7 /* Frameworks */,
 				844304A81713FC3500EBCBA7 /* Products */,
 			);
@@ -58,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				844304A71713FC3500EBCBA7 /* libDiscogsAPI.a */,
+				844304CB1714079300EBCBA7 /* DiscogsAPITests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				844304AA1713FC3500EBCBA7 /* Foundation.framework */,
+				844304CC1714079300EBCBA7 /* SenTestingKit.framework */,
+				844304CE1714079300EBCBA7 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -73,8 +100,10 @@
 		844304AC1713FC3500EBCBA7 /* DiscogsAPI */ = {
 			isa = PBXGroup;
 			children = (
-				844304AF1713FC3600EBCBA7 /* DiscogsAPI.h */,
-				844304B11713FC3600EBCBA7 /* DiscogsAPI.m */,
+				844304BD1714012C00EBCBA7 /* API */,
+				844304BB1714009D00EBCBA7 /* User */,
+				844304BA1714009200EBCBA7 /* Database */,
+				844304B91714008A00EBCBA7 /* Marketplace */,
 				844304AD1713FC3600EBCBA7 /* Supporting Files */,
 			);
 			path = DiscogsAPI;
@@ -86,6 +115,88 @@
 				844304AE1713FC3600EBCBA7 /* DiscogsAPI-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		844304B91714008A00EBCBA7 /* Marketplace */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Marketplace;
+			sourceTree = "<group>";
+		};
+		844304BA1714009200EBCBA7 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		844304BB1714009D00EBCBA7 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		844304BD1714012C00EBCBA7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				844304E61714185800EBCBA7 /* DataProviderDelegate.h */,
+				844304E71714188A00EBCBA7 /* NSURLDataProviderAsync.h */,
+				844304E81714188A00EBCBA7 /* NSURLDataProviderAsync.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		844304D11714079300EBCBA7 /* DiscogsAPITests */ = {
+			isa = PBXGroup;
+			children = (
+				844304E21714142800EBCBA7 /* MarketplaceTests */,
+				844304E11714141800EBCBA7 /* DatabaseTests */,
+				844304E0171413F400EBCBA7 /* UserTests */,
+				844304DF171413D800EBCBA7 /* APITests */,
+				844304D21714079300EBCBA7 /* Supporting Files */,
+			);
+			path = DiscogsAPITests;
+			sourceTree = "<group>";
+		};
+		844304D21714079300EBCBA7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				844304D31714079300EBCBA7 /* DiscogsAPITests-Info.plist */,
+				844304D41714079300EBCBA7 /* InfoPlist.strings */,
+				844304DA1714079300EBCBA7 /* DiscogsAPITests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		844304DF171413D800EBCBA7 /* APITests */ = {
+			isa = PBXGroup;
+			children = (
+				844304E4171415E000EBCBA7 /* DataProviderTest.m */,
+			);
+			name = APITests;
+			sourceTree = "<group>";
+		};
+		844304E0171413F400EBCBA7 /* UserTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UserTests;
+			sourceTree = "<group>";
+		};
+		844304E11714141800EBCBA7 /* DatabaseTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DatabaseTests;
+			sourceTree = "<group>";
+		};
+		844304E21714142800EBCBA7 /* MarketplaceTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MarketplaceTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,6 +218,24 @@
 			productName = DiscogsAPI;
 			productReference = 844304A71713FC3500EBCBA7 /* libDiscogsAPI.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		844304CA1714079300EBCBA7 /* DiscogsAPITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 844304DB1714079300EBCBA7 /* Build configuration list for PBXNativeTarget "DiscogsAPITests" */;
+			buildPhases = (
+				844304C61714079300EBCBA7 /* Sources */,
+				844304C71714079300EBCBA7 /* Frameworks */,
+				844304C81714079300EBCBA7 /* Resources */,
+				844304C91714079300EBCBA7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DiscogsAPITests;
+			productName = DiscogsAPITests;
+			productReference = 844304CB1714079300EBCBA7 /* DiscogsAPITests.octest */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -130,20 +259,67 @@
 			projectRoot = "";
 			targets = (
 				844304A61713FC3500EBCBA7 /* DiscogsAPI */,
+				844304CA1714079300EBCBA7 /* DiscogsAPITests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		844304C81714079300EBCBA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844304D61714079300EBCBA7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		844304C91714079300EBCBA7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		844304A31713FC3500EBCBA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844304B21713FC3600EBCBA7 /* DiscogsAPI.m in Sources */,
+				844304E91714188A00EBCBA7 /* NSURLDataProviderAsync.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		844304C61714079300EBCBA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844304E5171415E000EBCBA7 /* DataProviderTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		844304D41714079300EBCBA7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				844304D51714079300EBCBA7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		844304B31713FC3600EBCBA7 /* Debug */ = {
@@ -203,6 +379,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/DiscogsAPI.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DiscogsAPI/DiscogsAPI-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -215,11 +395,45 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/DiscogsAPI.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DiscogsAPI/DiscogsAPI-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		844304DC1714079300EBCBA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DiscogsAPITests/DiscogsAPITests-Prefix.pch";
+				INFOPLIST_FILE = "DiscogsAPITests/DiscogsAPITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		844304DD1714079300EBCBA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DiscogsAPITests/DiscogsAPITests-Prefix.pch";
+				INFOPLIST_FILE = "DiscogsAPITests/DiscogsAPITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -240,6 +454,14 @@
 			buildConfigurations = (
 				844304B61713FC3600EBCBA7 /* Debug */,
 				844304B71713FC3600EBCBA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		844304DB1714079300EBCBA7 /* Build configuration list for PBXNativeTarget "DiscogsAPITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844304DC1714079300EBCBA7 /* Debug */,
+				844304DD1714079300EBCBA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
