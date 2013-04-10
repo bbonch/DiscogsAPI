@@ -1,5 +1,5 @@
 //
-//  NSURLDataProvider.h
+//  NSURLDataProviderSync.h
 //  DiscogsAPI
 //
 //  Created by Admin on 4/9/13.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "DataProviderDelegate.h"
 
-@interface NSURLDataProviderAsync : NSObject<DataProviderDelegate,NSURLConnectionDataDelegate>
+@interface NSURLDataProviderSync : NSObject<DataProviderDelegate>
 
 @end

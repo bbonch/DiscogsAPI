@@ -13,8 +13,9 @@
 		844304D01714079300EBCBA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304AA1713FC3500EBCBA7 /* Foundation.framework */; };
 		844304D61714079300EBCBA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 844304D41714079300EBCBA7 /* InfoPlist.strings */; };
 		844304DE171407EE00EBCBA7 /* libDiscogsAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304A71713FC3500EBCBA7 /* libDiscogsAPI.a */; };
-		844304E5171415E000EBCBA7 /* DataProviderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 844304E4171415E000EBCBA7 /* DataProviderTest.m */; };
+		844304E5171415E000EBCBA7 /* DataProviderTestSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 844304E4171415E000EBCBA7 /* DataProviderTestSync.m */; };
 		844304E91714188A00EBCBA7 /* NSURLDataProviderAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = 844304E81714188A00EBCBA7 /* NSURLDataProviderAsync.m */; };
+		84CDC36F1714589800EB31AF /* NSURLDataProviderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,10 +40,12 @@
 		844304D31714079300EBCBA7 /* DiscogsAPITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DiscogsAPITests-Info.plist"; sourceTree = "<group>"; };
 		844304D51714079300EBCBA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		844304DA1714079300EBCBA7 /* DiscogsAPITests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiscogsAPITests-Prefix.pch"; sourceTree = "<group>"; };
-		844304E4171415E000EBCBA7 /* DataProviderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderTest.m; sourceTree = "<group>"; };
+		844304E4171415E000EBCBA7 /* DataProviderTestSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderTestSync.m; sourceTree = "<group>"; };
 		844304E61714185800EBCBA7 /* DataProviderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderDelegate.h; sourceTree = "<group>"; };
 		844304E71714188A00EBCBA7 /* NSURLDataProviderAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLDataProviderAsync.h; sourceTree = "<group>"; };
 		844304E81714188A00EBCBA7 /* NSURLDataProviderAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLDataProviderAsync.m; sourceTree = "<group>"; };
+		84CDC36D1714589700EB31AF /* NSURLDataProviderSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLDataProviderSync.h; sourceTree = "<group>"; };
+		84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLDataProviderSync.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				844304E61714185800EBCBA7 /* DataProviderDelegate.h */,
 				844304E71714188A00EBCBA7 /* NSURLDataProviderAsync.h */,
 				844304E81714188A00EBCBA7 /* NSURLDataProviderAsync.m */,
+				84CDC36D1714589700EB31AF /* NSURLDataProviderSync.h */,
+				84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -173,7 +178,7 @@
 		844304DF171413D800EBCBA7 /* APITests */ = {
 			isa = PBXGroup;
 			children = (
-				844304E4171415E000EBCBA7 /* DataProviderTest.m */,
+				844304E4171415E000EBCBA7 /* DataProviderTestSync.m */,
 			);
 			name = APITests;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				844304E91714188A00EBCBA7 /* NSURLDataProviderAsync.m in Sources */,
+				84CDC36F1714589800EB31AF /* NSURLDataProviderSync.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844304E5171415E000EBCBA7 /* DataProviderTest.m in Sources */,
+				844304E5171415E000EBCBA7 /* DataProviderTestSync.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +462,7 @@
 				844304B71713FC3600EBCBA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		844304DB1714079300EBCBA7 /* Build configuration list for PBXNativeTarget "DiscogsAPITests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +471,7 @@
 				844304DD1714079300EBCBA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

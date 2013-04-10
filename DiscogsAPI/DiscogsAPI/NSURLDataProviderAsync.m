@@ -8,31 +8,44 @@
 
 #import "NSURLDataProviderAsync.h"
 
+static NSString * const EventName = @"DataHasLoaded";
+
 @implementation NSURLDataProviderAsync
 
-@synthesize receivedData;
+NSURLConnection *connection;
 
--(NSData *) getDataWithUrl:(NSURL *)url
+@synthesize receivedData;
+@synthesize errorFromResponse;
+@synthesize responceCode;
+@synthesize dataLoaded;
+@synthesize observer;
+
+-(void) getDataWithUrl:(NSURL *)url
 {
+    if (dataLoaded == nil || observer == nil)
+    {
+        return;
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:dataLoaded name:EventName object:self];
+    
     NSURLRequest *request =
     [NSURLRequest requestWithURL:url
                   cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                   timeoutInterval:10.0];
-    
-    NSURLConnection *connection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSURLConnection *connection = connection =[[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     if (connection)
     {
+        [connection start];
         self.receivedData = [NSMutableData data];
     }
-    
-    return receivedData;
 }
 
--(NSData *) getDataWithString:(NSString *)stringUrl
+-(void) getDataWithString:(NSString *)stringUrl
 {
     NSURL *url = [[NSURL alloc] initWithString:stringUrl];
-    return [self getDataWithUrl:url];
+   [self getDataWithUrl:url];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -47,12 +60,15 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+    receivedData = nil;
+    errorFromResponse = error;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventName object:self];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{    
-    NSString *dataString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",dataString);
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventName object:self];
 }
                          
 @end

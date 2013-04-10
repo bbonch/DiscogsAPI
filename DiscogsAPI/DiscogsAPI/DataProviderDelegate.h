@@ -10,7 +10,13 @@
 
 @protocol DataProviderDelegate <NSObject>
 
--(NSData *) getDataWithUrl:(NSURL *)url;
--(NSData *) getDataWithString:(NSString *)stringUrl;
+@property NSError *errorFromResponse;
+@property NSHTTPURLResponse * responceCode;
+@property NSMutableData *receivedData;
+@property SEL dataLoaded;
+@property id observer;
+
+-(void) getDataWithUrl:(NSURL *)url;
+-(void) getDataWithString:(NSString *)stringUrl;
 
 @end
