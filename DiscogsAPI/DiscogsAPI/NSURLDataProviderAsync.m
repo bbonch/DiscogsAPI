@@ -12,8 +12,7 @@ static NSString * const EventName = @"DataHasLoaded";
 
 @implementation NSURLDataProviderAsync
 
-NSURLConnection *connection;
-
+@synthesize connection;
 @synthesize receivedData;
 @synthesize errorFromResponse;
 @synthesize responceCode;
@@ -33,11 +32,11 @@ NSURLConnection *connection;
     [NSURLRequest requestWithURL:url
                   cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                   timeoutInterval:10.0];
-    NSURLConnection *connection = connection =[[NSURLConnection alloc] initWithRequest:request delegate:self];
+    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
-    if (connection)
+    if (self.connection)
     {
-        [connection start];
+        [self.connection start];
         self.receivedData = [NSMutableData data];
     }
 }

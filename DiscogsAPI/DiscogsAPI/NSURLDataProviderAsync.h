@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "DataProviderDelegate.h"
 
-@interface NSURLDataProviderAsync : NSObject<DataProviderDelegate,NSURLConnectionDataDelegate>
+@interface NSURLDataProviderAsync : NSObject<DataProviderDelegate>
+{
+    NSURLConnection *connection;
+}
+
+@property (nonatomic,strong) NSURLConnection *connection;
 
 @end

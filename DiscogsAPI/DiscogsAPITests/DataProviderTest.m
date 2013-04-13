@@ -10,11 +10,11 @@
 #import "NSURLDataProviderAsync.h"
 #import "NSURLDataProviderSync.h"
 
-@interface DataProviderTestSync : SenTestCase
+@interface DataProviderTest : SenTestCase
 
 @end
 
-@implementation DataProviderTestSync
+@implementation DataProviderTest
 
 id<DataProviderDelegate> dataProvider = nil;
 
