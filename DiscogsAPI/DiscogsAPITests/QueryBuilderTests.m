@@ -43,14 +43,13 @@
     STAssertEqualObjects(query, @"http://api.discogs.com/database/search?key1=value1&key2=value2", @"");
 }
 
--(void) testQueryBuilderCatchException
+-(void) testQueryBuilderCatchStateBadFormatException
 {
     //Arrange
     QueryBuilder *queryBuilder = [QueryBuilder new];
-    [queryBuilder initWithQuery:@"http://api.discogs.com/database/search?"];
+    [queryBuilder initWithQuery:@"http://api.discogs.com/database/search"];
     
     //Assert
-    STAssertThrows([queryBuilder addPair:@"" value:nil], @"");
+    STAssertThrows([queryBuilder addPair:@"key" value:@"value"], @"");
 }
-
 @end

@@ -36,6 +36,12 @@
     }
     
     NSRange rangeOfQuestion = [query rangeOfString:@"?"];
+    
+    if (rangeOfQuestion.location == NSNotFound)
+    {
+        @throw [[NSException new] initWithName:@"BadFormatException" reason:@"Query must be ended with ? mark" userInfo:nil];
+    }
+    
     NSUInteger positionOfLastCharacter = [query length] - 1;
     
     if (positionOfLastCharacter == rangeOfQuestion.location)

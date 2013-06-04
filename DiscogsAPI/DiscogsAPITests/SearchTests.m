@@ -8,6 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "Search.h"
+#import "ArtistSearch.h"
 
 @interface SearchTests : SenTestCase
 
@@ -23,6 +24,15 @@
     
     //Assert
     STAssertEqualObjects(@"Dj Cam", search.artist, @"");
+}
+
+-(void) testGetSearchQuery
+{
+    //Arrange
+    Search *artistSearch = [ArtistSearch new];
+    
+    //Assert
+    STAssertEquals(@"Artist", [artistSearch GetSearchQuery], @"");
 }
 
 @end

@@ -18,6 +18,14 @@
 		849D0291174FCA1C00265372 /* QueryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D0290174FCA1C00265372 /* QueryObject.m */; };
 		849EFA74175547F200F063BD /* QueryBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EFA73175547F200F063BD /* QueryBuilderTests.m */; };
 		849EFA7717554A1B00F063BD /* QueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EFA7617554A1B00F063BD /* QueryBuilder.m */; };
+		849FFF8F175E82B600AD1EB1 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFF8E175E82B600AD1EB1 /* SearchResult.m */; };
+		849FFF92175E844A00AD1EB1 /* ReleaseSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFF91175E844A00AD1EB1 /* ReleaseSearchResult.m */; };
+		849FFF95175E846300AD1EB1 /* ArtistSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFF94175E846200AD1EB1 /* ArtistSearchResult.m */; };
+		849FFF98175E847200AD1EB1 /* LabelSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFF97175E847200AD1EB1 /* LabelSearchResult.m */; };
+		849FFF9B175E873A00AD1EB1 /* SearchAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFF9A175E873900AD1EB1 /* SearchAPI.m */; };
+		849FFF9E175E8CC300AD1EB1 /* ReleaseSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFF9D175E8CC200AD1EB1 /* ReleaseSearch.m */; };
+		849FFFA1175E8CE300AD1EB1 /* ArtistSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFFA0175E8CE200AD1EB1 /* ArtistSearch.m */; };
+		849FFFA4175E8CF800AD1EB1 /* LabelSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFFA3175E8CF800AD1EB1 /* LabelSearch.m */; };
 		84CDC36F1714589800EB31AF /* NSURLDataProviderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */; };
 		84E53C6C17160EF1007F209E /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E53C6B17160EF1007F209E /* Search.m */; };
 		84E53C6F17161172007F209E /* SearchType.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E53C6E17161172007F209E /* SearchType.m */; };
@@ -55,6 +63,22 @@
 		849EFA73175547F200F063BD /* QueryBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryBuilderTests.m; sourceTree = "<group>"; };
 		849EFA7517554A1B00F063BD /* QueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryBuilder.h; sourceTree = "<group>"; };
 		849EFA7617554A1B00F063BD /* QueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryBuilder.m; sourceTree = "<group>"; };
+		849FFF8D175E82B600AD1EB1 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		849FFF8E175E82B600AD1EB1 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		849FFF90175E844A00AD1EB1 /* ReleaseSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseSearchResult.h; sourceTree = "<group>"; };
+		849FFF91175E844A00AD1EB1 /* ReleaseSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseSearchResult.m; sourceTree = "<group>"; };
+		849FFF93175E846200AD1EB1 /* ArtistSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistSearchResult.h; sourceTree = "<group>"; };
+		849FFF94175E846200AD1EB1 /* ArtistSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistSearchResult.m; sourceTree = "<group>"; };
+		849FFF96175E847200AD1EB1 /* LabelSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelSearchResult.h; sourceTree = "<group>"; };
+		849FFF97175E847200AD1EB1 /* LabelSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelSearchResult.m; sourceTree = "<group>"; };
+		849FFF99175E873900AD1EB1 /* SearchAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAPI.h; sourceTree = "<group>"; };
+		849FFF9A175E873900AD1EB1 /* SearchAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAPI.m; sourceTree = "<group>"; };
+		849FFF9C175E8CC100AD1EB1 /* ReleaseSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseSearch.h; sourceTree = "<group>"; };
+		849FFF9D175E8CC200AD1EB1 /* ReleaseSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseSearch.m; sourceTree = "<group>"; };
+		849FFF9F175E8CE200AD1EB1 /* ArtistSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistSearch.h; sourceTree = "<group>"; };
+		849FFFA0175E8CE200AD1EB1 /* ArtistSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistSearch.m; sourceTree = "<group>"; };
+		849FFFA2175E8CF700AD1EB1 /* LabelSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelSearch.h; sourceTree = "<group>"; };
+		849FFFA3175E8CF800AD1EB1 /* LabelSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelSearch.m; sourceTree = "<group>"; };
 		84CDC36D1714589700EB31AF /* NSURLDataProviderSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLDataProviderSync.h; sourceTree = "<group>"; };
 		84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLDataProviderSync.m; sourceTree = "<group>"; };
 		84E53C6A17160EF1007F209E /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
@@ -148,6 +172,22 @@
 				84E53C6B17160EF1007F209E /* Search.m */,
 				84E53C6D17161172007F209E /* SearchType.h */,
 				84E53C6E17161172007F209E /* SearchType.m */,
+				849FFF8D175E82B600AD1EB1 /* SearchResult.h */,
+				849FFF8E175E82B600AD1EB1 /* SearchResult.m */,
+				849FFF90175E844A00AD1EB1 /* ReleaseSearchResult.h */,
+				849FFF91175E844A00AD1EB1 /* ReleaseSearchResult.m */,
+				849FFF93175E846200AD1EB1 /* ArtistSearchResult.h */,
+				849FFF94175E846200AD1EB1 /* ArtistSearchResult.m */,
+				849FFF96175E847200AD1EB1 /* LabelSearchResult.h */,
+				849FFF97175E847200AD1EB1 /* LabelSearchResult.m */,
+				849FFF99175E873900AD1EB1 /* SearchAPI.h */,
+				849FFF9A175E873900AD1EB1 /* SearchAPI.m */,
+				849FFF9C175E8CC100AD1EB1 /* ReleaseSearch.h */,
+				849FFF9D175E8CC200AD1EB1 /* ReleaseSearch.m */,
+				849FFF9F175E8CE200AD1EB1 /* ArtistSearch.h */,
+				849FFFA0175E8CE200AD1EB1 /* ArtistSearch.m */,
+				849FFFA2175E8CF700AD1EB1 /* LabelSearch.h */,
+				849FFFA3175E8CF800AD1EB1 /* LabelSearch.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -356,6 +396,14 @@
 				84E53C6F17161172007F209E /* SearchType.m in Sources */,
 				849D0291174FCA1C00265372 /* QueryObject.m in Sources */,
 				849EFA7717554A1B00F063BD /* QueryBuilder.m in Sources */,
+				849FFF8F175E82B600AD1EB1 /* SearchResult.m in Sources */,
+				849FFF92175E844A00AD1EB1 /* ReleaseSearchResult.m in Sources */,
+				849FFF95175E846300AD1EB1 /* ArtistSearchResult.m in Sources */,
+				849FFF98175E847200AD1EB1 /* LabelSearchResult.m in Sources */,
+				849FFF9B175E873A00AD1EB1 /* SearchAPI.m in Sources */,
+				849FFF9E175E8CC300AD1EB1 /* ReleaseSearch.m in Sources */,
+				849FFFA1175E8CE300AD1EB1 /* ArtistSearch.m in Sources */,
+				849FFFA4175E8CF800AD1EB1 /* LabelSearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

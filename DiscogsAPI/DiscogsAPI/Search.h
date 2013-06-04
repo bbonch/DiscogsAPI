@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SearchType.h"
 #import "QueryObject.h"
+#import "SearchResult.h"
 
 @interface Search : QueryObject
 
@@ -30,5 +31,8 @@
 @property NSString *track;
 @property NSString *submitter;
 @property NSString *contributor;
+
+-(NSString *) GetSearchQuery;
+-(SearchResult *) GetSearchResult;
 
 @end
