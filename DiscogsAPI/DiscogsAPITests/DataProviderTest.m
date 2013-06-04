@@ -51,7 +51,7 @@ id<DataProviderDelegate> dataProvider = nil;
     STAssertNotNil(error, @"Error is nil");
 }
 
--(void) testGetStringDataFromUrlSync
+-(void) testGetStringDataFromUrl
 {
     //Arrange
     NSString *urlString = @"http://api.discogs.com/database/search?type=release&per_page=1";
@@ -62,7 +62,7 @@ id<DataProviderDelegate> dataProvider = nil;
     [dataProvider getDataWithUrl:url];
 }
 
--(void) testGetStringDataFromWrongUrlSync
+-(void) testGetStringDataFromWrongUrl
 {
     //Arrange
     NSString *urlString = @"http://api.discogscom/database/search/per_page=1";
@@ -73,7 +73,7 @@ id<DataProviderDelegate> dataProvider = nil;
     [dataProvider getDataWithUrl:url];
 }
 
--(void) testGetStringDataFromStringSync
+-(void) testGetStringDataFromString
 {
     //Arrange
     NSString *urlString = @"http://api.discogs.com/database/search?type=release&per_page=1";
@@ -83,7 +83,7 @@ id<DataProviderDelegate> dataProvider = nil;
     [dataProvider getDataWithString:urlString];
 }
 
--(void) testGetStringDataFromWrongStringSync
+-(void) testGetStringDataFromWrongString
 {
     //Arrange
     NSString *urlString = @"http://api.discogscom/database/search/per_page=1";

@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "SearchType.h"
+#import "QueryObject.h"
 
-@interface Search : NSObject
+@interface Search : QueryObject
 
 @property NSString *q;
 @property SearchType *searchType;
