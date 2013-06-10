@@ -13,7 +13,6 @@
 NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
 
 @synthesize q;
-@synthesize searchType;
 @synthesize title;
 @synthesize releaseTitle;
 @synthesize credit;

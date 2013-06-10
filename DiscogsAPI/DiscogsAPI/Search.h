@@ -7,14 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SearchType.h"
 #import "QueryObject.h"
 #import "SearchResult.h"
 
 @interface Search : QueryObject
 
 @property NSString *q;
-@property SearchType *searchType;
 @property NSString *title;
 @property NSString *releaseTitle;
 @property NSString *credit;

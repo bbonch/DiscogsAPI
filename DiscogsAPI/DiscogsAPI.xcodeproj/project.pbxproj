@@ -28,7 +28,6 @@
 		849FFFA4175E8CF800AD1EB1 /* LabelSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFFA3175E8CF800AD1EB1 /* LabelSearch.m */; };
 		84CDC36F1714589800EB31AF /* NSURLDataProviderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */; };
 		84E53C6C17160EF1007F209E /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E53C6B17160EF1007F209E /* Search.m */; };
-		84E53C6F17161172007F209E /* SearchType.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E53C6E17161172007F209E /* SearchType.m */; };
 		84E53C7417161767007F209E /* SearchTypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E53C7317161767007F209E /* SearchTypeTests.m */; };
 /* End PBXBuildFile section */
 
@@ -83,8 +82,6 @@
 		84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLDataProviderSync.m; sourceTree = "<group>"; };
 		84E53C6A17160EF1007F209E /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
 		84E53C6B17160EF1007F209E /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
-		84E53C6D17161172007F209E /* SearchType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchType.h; sourceTree = "<group>"; };
-		84E53C6E17161172007F209E /* SearchType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchType.m; sourceTree = "<group>"; };
 		84E53C7317161767007F209E /* SearchTypeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTypeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,8 +167,6 @@
 			children = (
 				84E53C6A17160EF1007F209E /* Search.h */,
 				84E53C6B17160EF1007F209E /* Search.m */,
-				84E53C6D17161172007F209E /* SearchType.h */,
-				84E53C6E17161172007F209E /* SearchType.m */,
 				849FFF8D175E82B600AD1EB1 /* SearchResult.h */,
 				849FFF8E175E82B600AD1EB1 /* SearchResult.m */,
 				849FFF90175E844A00AD1EB1 /* ReleaseSearchResult.h */,
@@ -393,7 +388,6 @@
 				844304E91714188A00EBCBA7 /* NSURLDataProviderAsync.m in Sources */,
 				84CDC36F1714589800EB31AF /* NSURLDataProviderSync.m in Sources */,
 				84E53C6C17160EF1007F209E /* Search.m in Sources */,
-				84E53C6F17161172007F209E /* SearchType.m in Sources */,
 				849D0291174FCA1C00265372 /* QueryObject.m in Sources */,
 				849EFA7717554A1B00F063BD /* QueryBuilder.m in Sources */,
 				849FFF8F175E82B600AD1EB1 /* SearchResult.m in Sources */,
