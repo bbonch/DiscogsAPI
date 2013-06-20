@@ -12,10 +12,12 @@
 
 -(NSString *) GetSearchQuery
 {
-    return @"Release";
+    [super GetSearchQuery];
+    [queryBuilder addPair:@"type" value:@"release"];
+    return [queryBuilder query];
 }
 
--(SearchResult *) GetSearchResult
+-(SearchResult *) GetSearchResult:(NSDictionary *)jsonData
 {
     return nil;
 }

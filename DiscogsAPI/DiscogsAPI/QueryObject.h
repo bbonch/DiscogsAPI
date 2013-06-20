@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QueryBuilder.h"
 
 @interface QueryObject : NSObject
 

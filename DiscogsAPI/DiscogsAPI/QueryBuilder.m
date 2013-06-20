@@ -20,7 +20,7 @@
 
 -(void) initWithQuery:(NSString *)initQuery
 {
-    self.query = initQuery;
+    query = initQuery;
 }
 
 -(void) addPair:(NSString *)key value:(NSString *)value

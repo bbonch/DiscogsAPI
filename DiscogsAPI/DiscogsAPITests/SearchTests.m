@@ -16,6 +16,8 @@
 
 @implementation SearchTests
 
+NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type=artist";
+
 -(void) testSearchPropertyArtist
 {
     //Arrange
@@ -31,8 +33,11 @@
     //Arrange
     Search *artistSearch = [ArtistSearch new];
     
+    //Act
+    NSString *result = [artistSearch GetSearchQuery];
+    
     //Assert
-    STAssertEquals(@"Artist", [artistSearch GetSearchQuery], @"");
+    STAssertEqualObjects(testSearchQuery, result, @"");
 }
 
 @end

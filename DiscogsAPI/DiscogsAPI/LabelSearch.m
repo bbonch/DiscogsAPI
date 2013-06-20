@@ -12,10 +12,12 @@
 
 -(NSString *) GetSearchQuery
 {
-    return @"Label";
+    [super GetSearchQuery];
+    [queryBuilder addPair:@"type" value:@"label"];
+    return [queryBuilder query];
 }
 
--(SearchResult *) GetSearchResult
+-(SearchResult *) GetSearchResult:(NSDictionary *)jsonData
 {
     return nil;
 }

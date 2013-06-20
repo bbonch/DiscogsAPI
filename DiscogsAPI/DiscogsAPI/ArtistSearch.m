@@ -12,10 +12,12 @@
 
 -(NSString *) GetSearchQuery
 {
-    return @"Artist";
+    [super GetSearchQuery];
+    [queryBuilder addPair:@"type" value:@"artist"];
+    return [queryBuilder query];
 }
 
--(SearchResult *) GetSearchResult
+-(SearchResult *) GetSearchResult:(NSDictionary *)jsonData
 {
     return nil;
 }

@@ -11,6 +11,9 @@
 #import "SearchResult.h"
 
 @interface Search : QueryObject
+{
+    QueryBuilder * queryBuilder;
+}
 
 @property NSString *q;
 @property NSString *title;
@@ -30,7 +33,10 @@
 @property NSString *submitter;
 @property NSString *contributor;
 
+-(QueryBuilder *) queryBuilder;
+-(void) setQueryBuilder:(QueryBuilder *)newQueryBuilder;
+
 -(NSString *) GetSearchQuery;
--(SearchResult *) GetSearchResult;
+-(SearchResult *) GetSearchResult:(NSDictionary *)jsonObject;
 
 @end

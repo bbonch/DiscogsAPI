@@ -26,9 +26,9 @@
 		849FFF9E175E8CC300AD1EB1 /* ReleaseSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFF9D175E8CC200AD1EB1 /* ReleaseSearch.m */; };
 		849FFFA1175E8CE300AD1EB1 /* ArtistSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFFA0175E8CE200AD1EB1 /* ArtistSearch.m */; };
 		849FFFA4175E8CF800AD1EB1 /* LabelSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFFA3175E8CF800AD1EB1 /* LabelSearch.m */; };
+		84A1E8D417666085006CCBF4 /* SearchAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1E8D317666085006CCBF4 /* SearchAPITests.m */; };
 		84CDC36F1714589800EB31AF /* NSURLDataProviderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */; };
 		84E53C6C17160EF1007F209E /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E53C6B17160EF1007F209E /* Search.m */; };
-		84E53C7417161767007F209E /* SearchTypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E53C7317161767007F209E /* SearchTypeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,11 +78,11 @@
 		849FFFA0175E8CE200AD1EB1 /* ArtistSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistSearch.m; sourceTree = "<group>"; };
 		849FFFA2175E8CF700AD1EB1 /* LabelSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelSearch.h; sourceTree = "<group>"; };
 		849FFFA3175E8CF800AD1EB1 /* LabelSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelSearch.m; sourceTree = "<group>"; };
+		84A1E8D317666085006CCBF4 /* SearchAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAPITests.m; sourceTree = "<group>"; };
 		84CDC36D1714589700EB31AF /* NSURLDataProviderSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLDataProviderSync.h; sourceTree = "<group>"; };
 		84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLDataProviderSync.m; sourceTree = "<group>"; };
 		84E53C6A17160EF1007F209E /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
 		84E53C6B17160EF1007F209E /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
-		84E53C7317161767007F209E /* SearchTypeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTypeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,8 +282,8 @@
 		84E53C711716173C007F209E /* SearchTests */ = {
 			isa = PBXGroup;
 			children = (
-				84E53C7317161767007F209E /* SearchTypeTests.m */,
 				849D028C174FBD6200265372 /* SearchTests.m */,
+				84A1E8D317666085006CCBF4 /* SearchAPITests.m */,
 			);
 			name = SearchTests;
 			sourceTree = "<group>";
@@ -406,9 +406,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				844304E5171415E000EBCBA7 /* DataProviderTest.m in Sources */,
-				84E53C7417161767007F209E /* SearchTypeTests.m in Sources */,
 				849D028D174FBD6200265372 /* SearchTests.m in Sources */,
 				849EFA74175547F200F063BD /* QueryBuilderTests.m in Sources */,
+				84A1E8D417666085006CCBF4 /* SearchAPITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
