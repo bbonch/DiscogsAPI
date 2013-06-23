@@ -10,8 +10,10 @@
 
 @interface SearchResult : NSObject
 
-@property NSInteger *identifier;
+@property long identifier;
 @property NSString *title;
 @property NSString *resourceUrl;
+@property NSString *url;
+@property NSString *thumb;
 
 @end

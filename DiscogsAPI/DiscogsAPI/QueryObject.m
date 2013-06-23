@@ -12,7 +12,5 @@
 
 @synthesize page;
 @synthesize perPage;
-@synthesize items;
-@synthesize pages;
 
 @end

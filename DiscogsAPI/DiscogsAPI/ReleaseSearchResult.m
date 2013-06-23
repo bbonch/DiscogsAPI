@@ -10,4 +10,12 @@
 
 @implementation ReleaseSearchResult
 
+@synthesize styles;
+@synthesize formats;
+@synthesize country;
+@synthesize labels;
+@synthesize catno;
+@synthesize year;
+@synthesize genres;
+
 @end

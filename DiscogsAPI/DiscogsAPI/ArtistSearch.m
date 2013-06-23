@@ -7,6 +7,7 @@
 //
 
 #import "ArtistSearch.h"
+#import "ArtistSearchResult.h"
 
 @implementation ArtistSearch
 
@@ -19,7 +20,14 @@
 
 -(SearchResult *) GetSearchResult:(NSDictionary *)jsonData
 {
-    return nil;
+    ArtistSearchResult *sr = [ArtistSearchResult new];
+    sr.identifier = (int)[jsonData objectForKey:@"id"];
+    sr.resourceUrl = [jsonData objectForKey:@"resource_url"];
+    sr.title = [jsonData objectForKey:@"title"];
+    sr.thumb = [jsonData objectForKey:@"thumb"];
+    sr.url = [jsonData objectForKey:@"url"];
+    
+    return sr;
 }
 
 @end

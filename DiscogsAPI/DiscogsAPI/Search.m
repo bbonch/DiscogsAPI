@@ -44,11 +44,11 @@ NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
 {
 }
 
-- (void)SetSearchParameter:(NSString *) string parameterInt:(NSInteger *) value
+- (void)SetSearchParameter:(NSString *) string parameterInt:(int) value
 {
     if (value)
     {
-        [queryBuilder addPair:string value:[NSString stringWithFormat:@"%i",*value]];
+        [queryBuilder addPair:string value:[NSString stringWithFormat:@"%i",value]];
     }
 }
 
@@ -105,9 +105,38 @@ NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
     return [queryBuilder query];
 }
 
--(SearchResult *) GetSearchResult:(NSDictionary *)jsonObject
+-(SearchResults *) GetSearchResults:(NSDictionary *)jsonData
 {
-    return nil;
+    if (jsonData == nil)
+    {
+        @throw [[NSException new] initWithName:@"ArgumentException" reason:@"Argument is nil" userInfo:nil];
+    }
+    
+    SearchResults *searchResults = [SearchResults new];
+    NSDictionary *pagination = [jsonData objectForKey:@"pagination"];
+    NSDictionary *urls =[pagination objectForKey:@"urls"];
+    [searchResults setNextUrl:[urls objectForKey:@"next"]];
+    
+    NSArray *results = [jsonData objectForKey:@"results"];
+    for (NSDictionary *result in results)
+    {
+        [searchResults setSearchResults:[NSMutableArray new]];
+        [[searchResults searchResults] addObject:[self GetSearchResult:result]];
+    }
+    
+    return searchResults;
+}
+
+-(SearchResult *) GetSearchResult:(NSDictionary *)jsonData
+{
+    SearchResult * sr = [SearchResult new];
+    sr.identifier = (int)[jsonData objectForKey:@"id"];
+    sr.resourceUrl = [jsonData objectForKey:@"resource_url"];
+    sr.title = [jsonData objectForKey:@"title"];
+    sr.thumb = [jsonData objectForKey:@"thumb"];
+    sr.url = [jsonData objectForKey:@"url"];
+    
+    return sr;
 }
 
 @end

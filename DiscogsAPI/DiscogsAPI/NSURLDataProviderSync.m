@@ -20,13 +20,6 @@ static NSString * const EventName = @"DataHasLoaded";
 
 -(void) getDataWithUrl:(NSURL *)url
 {
-    if (dataLoaded == nil || observer == nil)
-    {
-        return;
-    }
-    
-    [[NSNotificationCenter defaultCenter] addObserver:observer selector:dataLoaded name:EventName object:self];
-    
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = @"GET";
     request.URL = url;
@@ -37,8 +30,6 @@ static NSString * const EventName = @"DataHasLoaded";
     receivedData = (NSMutableData *)[NSURLConnection sendSynchronousRequest:request returningResponse:&responceCodeLocal error:&errorLocal];
     errorFromResponse = errorLocal;
     responceCode = responceCodeLocal;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:EventName object:self];
 }
 
 -(void) getDataWithString:(NSString *)stringUrl

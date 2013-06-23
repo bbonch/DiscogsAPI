@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "QueryObject.h"
+#import "SearchResults.h"
 #import "SearchResult.h"
 
 @interface Search : QueryObject
 {
-    QueryBuilder * queryBuilder;
+    QueryBuilder *queryBuilder;
 }
 
 @property NSString *q;
@@ -33,10 +34,8 @@
 @property NSString *submitter;
 @property NSString *contributor;
 
--(QueryBuilder *) queryBuilder;
--(void) setQueryBuilder:(QueryBuilder *)newQueryBuilder;
-
 -(NSString *) GetSearchQuery;
--(SearchResult *) GetSearchResult:(NSDictionary *)jsonObject;
+-(SearchResults *) GetSearchResults:(NSDictionary *)jsonData;
+-(SearchResult *) GetSearchResult:(NSDictionary *)jsonData;
 
 @end

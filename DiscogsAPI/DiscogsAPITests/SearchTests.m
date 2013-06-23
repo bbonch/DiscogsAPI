@@ -7,8 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import <Foundation/Foundation.h>
 #import "Search.h"
 #import "ArtistSearch.h"
+#import "NSURLDataProviderSync.h"
 
 @interface SearchTests : SenTestCase
 
@@ -38,6 +40,26 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
     
     //Assert
     STAssertEqualObjects(testSearchQuery, result, @"");
+}
+
+-(void) testGetArtistSearchResult
+{
+    //Arrange
+    Search *artistSearch = [ArtistSearch new];
+    [artistSearch setPerPage:11];
+    id<DataProviderDelegate> provider = [NSURLDataProviderSync new];
+    
+    //Act
+    NSString *searchQuery = [artistSearch GetSearchQuery];
+    [provider getDataWithString:searchQuery];
+    NSMutableData *jsonData = [provider receivedData];
+    id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSDictionary *jsonDictionary = object;
+    NSArray *results = [jsonDictionary objectForKey:@"results"];
+    SearchResult *searchResult = [artistSearch GetSearchResult:[results objectAtIndex:0]];
+    
+    //Assert
+    STAssertNotNil(searchResult.title, @"");
 }
 
 @end

@@ -10,4 +10,12 @@
 
 @interface ReleaseSearchResult : SearchResult
 
+@property NSArray *styles;
+@property NSArray *formats;
+@property NSString *country;
+@property NSArray *labels;
+@property NSString *catno;
+@property NSString *year;
+@property NSArray *genres;
+
 @end

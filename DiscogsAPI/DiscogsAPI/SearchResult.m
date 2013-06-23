@@ -13,5 +13,7 @@
 @synthesize identifier;
 @synthesize title;
 @synthesize resourceUrl;
+@synthesize url;
+@synthesize thumb;
 
 @end

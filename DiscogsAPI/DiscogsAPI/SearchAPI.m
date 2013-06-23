@@ -7,15 +7,14 @@
 //
 
 #import "SearchAPI.h"
+#import "NSURLDataProviderSync.h"
 
 @implementation SearchAPI
 
-@synthesize dataProvider;
-
-- (SearchResult *) GetSearchResult:(Search *) search
+- (SearchResults *) GetSearchResults:(Search *) search
 {
     NSString *searchQuery = [search GetSearchQuery];
-    
+    id<DataProviderDelegate> dataProvider = [NSURLDataProviderSync new];
     [dataProvider getDataWithString:searchQuery];
     NSMutableData *jsonData = [dataProvider receivedData];
     if (jsonData == nil)
@@ -23,7 +22,7 @@
         @throw [[NSException new] initWithName:@"QueryException" reason:@"Query is incorrect." userInfo:nil];
     }
     
-    NSDictionary *jsonObject = nil;
+    NSDictionary *jsonDictionary = nil;
     if(NSClassFromString(@"NSJSONSerialization"))
     {
         NSError *jsonError = nil;
@@ -37,7 +36,9 @@
         {
             if ([object isKindOfClass:[NSDictionary class]])
             {
-                jsonObject = object;
+                jsonDictionary = object;
+                SearchResults *searchResults = [search GetSearchResults:jsonDictionary];
+                return searchResults;
             }
             else
             {
@@ -49,9 +50,6 @@
     {
         @throw [[NSException new] initWithName:@"PlatformException" reason:@"Incorrect IOS version. Required 5.0 or later." userInfo:nil];
     }
-    
-    SearchResult *searchResult = [search GetSearchResult:jsonObject];
-    return searchResult;
 }
 
 @end

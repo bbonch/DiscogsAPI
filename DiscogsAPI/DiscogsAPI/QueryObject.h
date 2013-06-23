@@ -13,9 +13,7 @@
 
 extern NSString * const BaseUrl;
 
-@property NSInteger *page;
-@property NSInteger *perPage;
-@property NSInteger *items;
-@property NSInteger *pages;
+@property int page;
+@property int perPage;
 
 @end

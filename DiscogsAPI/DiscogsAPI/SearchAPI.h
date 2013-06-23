@@ -7,14 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SearchResult.h"
+#import "SearchResults.h"
 #import "Search.h"
-#import "DataProviderDelegate.h"
 
 @interface SearchAPI : NSObject
 
-@property id<DataProviderDelegate> dataProvider;
-
-- (SearchResult *) GetSearchResult:(Search *) search;
+- (SearchResults *) GetSearchResults:(Search *) search;
 
 @end
