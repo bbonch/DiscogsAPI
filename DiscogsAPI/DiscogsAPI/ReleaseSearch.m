@@ -14,8 +14,8 @@
 -(NSString *) GetSearchQuery
 {
     [super GetSearchQuery];
-    [queryBuilder addPair:@"type" value:@"release"];
-    return [queryBuilder query];
+    [self.queryBuilder addPair:@"type" value:@"release"];
+    return [self.queryBuilder query];
 }
 
 -(SearchResult *) GetSearchResult:(NSDictionary *)jsonData

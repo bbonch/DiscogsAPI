@@ -48,7 +48,7 @@ NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
 {
     if (value)
     {
-        [queryBuilder addPair:string value:[NSString stringWithFormat:@"%i",value]];
+        [self.queryBuilder addPair:string value:[NSString stringWithFormat:@"%i",value]];
     }
 }
 
@@ -56,7 +56,7 @@ NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
 {
     if (value)
     {
-        [queryBuilder addPair:string value:value];
+        [self.queryBuilder addPair:string value:value];
     }
 }
 
@@ -102,7 +102,7 @@ NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
     
     [self SetSearchParameter:@"contributor" parameterString:contributor];
     
-    return [queryBuilder query];
+    return [self.queryBuilder query];
 }
 
 -(SearchResults *) GetSearchResults:(NSDictionary *)jsonData

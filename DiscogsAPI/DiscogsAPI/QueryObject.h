@@ -10,6 +10,9 @@
 #import "QueryBuilder.h"
 
 @interface QueryObject : NSObject
+{
+    QueryBuilder *queryBuilder;
+}
 
 extern NSString * const BaseUrl;
 
