@@ -22,7 +22,7 @@ id<DataProviderDelegate> dataProvider = nil;
 {
     [super setUp];
     
-    dataProvider = [NSURLDataProviderAsync new];
+    dataProvider = [NSURLDataProviderSync new];
     [dataProvider setObserver:self];
 }
 

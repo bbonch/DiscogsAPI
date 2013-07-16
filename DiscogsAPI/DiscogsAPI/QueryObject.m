@@ -10,7 +10,18 @@
 
 @implementation QueryObject
 
-@synthesize page;
-@synthesize perPage;
+-(QueryBuilder *) queryBuilder
+{
+    if (queryBuilder == nil)
+    {
+        queryBuilder = [QueryBuilder new];
+    }
+    
+    return queryBuilder;
+}
+
+-(void) setQueryBuilder:(QueryBuilder *)queryBuilder
+{
+}
 
 @end

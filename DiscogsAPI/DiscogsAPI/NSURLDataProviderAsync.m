@@ -12,21 +12,20 @@ static NSString * const EventName = @"DataHasLoaded";
 
 @implementation NSURLDataProviderAsync
 
-@synthesize connection;
-@synthesize receivedData;
-@synthesize errorFromResponse;
-@synthesize responceCode;
 @synthesize dataLoaded;
 @synthesize observer;
+@synthesize errorFromResponse;
+@synthesize receivedData;
+@synthesize responceCode;
 
 -(void) getDataWithUrl:(NSURL *)url
 {
-    if (dataLoaded == nil || observer == nil)
+    if (self.dataLoaded == nil || self.observer == nil)
     {
         return;
     }
     
-    [[NSNotificationCenter defaultCenter] addObserver:observer selector:dataLoaded name:EventName object:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self.observer selector:self.dataLoaded name:EventName object:self];
     
     NSURLRequest *request =
     [NSURLRequest requestWithURL:url
@@ -49,18 +48,18 @@ static NSString * const EventName = @"DataHasLoaded";
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    [receivedData setLength:0];
+    [self.receivedData setLength:0];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    [receivedData appendData:data];
+    [self.receivedData appendData:data];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    receivedData = nil;
-    errorFromResponse = error;
+    self.receivedData = nil;
+    self.errorFromResponse = error;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EventName object:self];
 }

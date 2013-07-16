@@ -38,7 +38,7 @@
     //Assert
     STAssertEqualObjects(nextUrl, @"http://api.discogs.com/database/search?per_page=1&type=release&catno=34&page=2&year=1996", @"");
     STAssertEquals(count, [searchResults count], @"");
-    STAssertEqualObjects(searchResult.catno, @"0034", @"");
+    STAssertEqualObjects(searchResult.catno, @"NOW 34", @"");
 }
 
 @end

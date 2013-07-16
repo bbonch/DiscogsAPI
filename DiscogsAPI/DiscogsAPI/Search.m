@@ -12,38 +12,6 @@
 
 NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
 
-@synthesize q;
-@synthesize title;
-@synthesize releaseTitle;
-@synthesize credit;
-@synthesize artist;
-@synthesize anv;
-@synthesize label;
-@synthesize genre;
-@synthesize style;
-@synthesize country;
-@synthesize year;
-@synthesize format;
-@synthesize catno;
-@synthesize barcode;
-@synthesize track;
-@synthesize submitter;
-@synthesize contributor;
-
--(QueryBuilder *) queryBuilder
-{
-    if (queryBuilder == nil)
-    {
-        queryBuilder = [QueryBuilder new];
-    }
-    
-    return queryBuilder;
-}
-
--(void) setQueryBuilder:(QueryBuilder *)newQueryBuilder
-{
-}
-
 - (void)SetSearchParameter:(NSString *) string parameterInt:(int) value
 {
     if (value)
@@ -68,39 +36,39 @@ NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
     
     [self SetSearchParameter:@"page" parameterInt:self.page];
     
-    [self SetSearchParameter:@"q" parameterString:q];
+    [self SetSearchParameter:@"q" parameterString:self.q];
     
-    [self SetSearchParameter:@"title" parameterString:title];
+    [self SetSearchParameter:@"title" parameterString:self.title];
     
-    [self SetSearchParameter:@"release_title" parameterString:releaseTitle];
+    [self SetSearchParameter:@"release_title" parameterString:self.releaseTitle];
     
-    [self SetSearchParameter:@"credit" parameterString:credit];
+    [self SetSearchParameter:@"credit" parameterString:self.credit];
     
-    [self SetSearchParameter:@"artist" parameterString:artist];
+    [self SetSearchParameter:@"artist" parameterString:self.artist];
     
-    [self SetSearchParameter:@"anv" parameterString:anv];
+    [self SetSearchParameter:@"anv" parameterString:self.anv];
     
-    [self SetSearchParameter:@"label" parameterString:label];
+    [self SetSearchParameter:@"label" parameterString:self.label];
     
-    [self SetSearchParameter:@"genre" parameterString:genre];
+    [self SetSearchParameter:@"genre" parameterString:self.genre];
     
-    [self SetSearchParameter:@"style" parameterString:style];
+    [self SetSearchParameter:@"style" parameterString:self.style];
     
-    [self SetSearchParameter:@"country" parameterString:country];
+    [self SetSearchParameter:@"country" parameterString:self.country];
     
-    [self SetSearchParameter:@"year" parameterString:year];
+    [self SetSearchParameter:@"year" parameterString:self.year];
     
-    [self SetSearchParameter:@"format" parameterString:format];
+    [self SetSearchParameter:@"format" parameterString:self.format];
     
-    [self SetSearchParameter:@"catno" parameterString:catno];
+    [self SetSearchParameter:@"catno" parameterString:self.catno];
     
-    [self SetSearchParameter:@"barcode" parameterString:barcode];
+    [self SetSearchParameter:@"barcode" parameterString:self.barcode];
     
-    [self SetSearchParameter:@"track" parameterString:track];
+    [self SetSearchParameter:@"track" parameterString:self.track];
     
-    [self SetSearchParameter:@"submitter" parameterString:submitter];
+    [self SetSearchParameter:@"submitter" parameterString:self.submitter];
     
-    [self SetSearchParameter:@"contributor" parameterString:contributor];
+    [self SetSearchParameter:@"contributor" parameterString:self.contributor];
     
     return [self.queryBuilder query];
 }

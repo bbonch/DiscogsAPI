@@ -10,7 +10,4 @@
 
 @implementation SearchResults
 
-@synthesize nextUrl;
-@synthesize searchResults;
-
 @end
