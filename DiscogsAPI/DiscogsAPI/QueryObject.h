@@ -20,6 +20,5 @@ extern NSString * const BaseUrl;
 @property int perPage;
 
 -(QueryBuilder *) queryBuilder;
--(void) setQueryBuilder:(QueryBuilder *)queryBuilder;
 
 @end

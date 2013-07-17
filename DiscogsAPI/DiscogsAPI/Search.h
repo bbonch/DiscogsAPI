@@ -31,7 +31,7 @@
 @property NSString *submitter;
 @property NSString *contributor;
 
--(NSString *) GetSearchQuery;
+-(void) GetSearchQuery;
 -(SearchResults *) GetSearchResults:(NSDictionary *)jsonData;
 -(SearchResult *) GetSearchResult:(NSDictionary *)jsonData;
 

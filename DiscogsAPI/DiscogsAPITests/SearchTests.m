@@ -36,7 +36,8 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
     Search *artistSearch = [ArtistSearch new];
     
     //Act
-    NSString *result = [artistSearch GetSearchQuery];
+    [artistSearch GetSearchQuery];
+    NSString *result = [[artistSearch queryBuilder] query];
     
     //Assert
     STAssertEqualObjects(testSearchQuery, result, @"");
@@ -50,7 +51,8 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
     id<DataProviderDelegate> provider = [NSURLDataProviderSync new];
     
     //Act
-    NSString *searchQuery = [artistSearch GetSearchQuery];
+    [artistSearch GetSearchQuery];
+    NSString *searchQuery = [[artistSearch queryBuilder] query];
     [provider getDataWithString:searchQuery];
     NSMutableData *jsonData = [provider receivedData];
     id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];

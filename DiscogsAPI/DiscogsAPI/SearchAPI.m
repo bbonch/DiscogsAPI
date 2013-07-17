@@ -13,7 +13,8 @@
 
 - (SearchResults *) GetSearchResults:(Search *) search
 {
-    NSString *searchQuery = [search GetSearchQuery];
+    [search GetSearchQuery];
+    NSString *searchQuery = [[search queryBuilder] query];
     id<DataProviderDelegate> dataProvider = [NSURLDataProviderSync new];
     [dataProvider getDataWithString:searchQuery];
     NSMutableData *jsonData = [dataProvider receivedData];

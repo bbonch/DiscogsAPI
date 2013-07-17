@@ -11,11 +11,10 @@
 
 @implementation LabelSearch
 
--(NSString *) GetSearchQuery
+-(void) GetSearchQuery
 {
     [super GetSearchQuery];
     [self.queryBuilder addPair:@"type" value:@"label"];
-    return [self.queryBuilder query];
 }
 
 -(SearchResult *) GetSearchResult:(NSDictionary *)jsonData

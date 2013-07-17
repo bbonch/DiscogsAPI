@@ -11,11 +11,10 @@
 
 @implementation ReleaseSearch
 
--(NSString *) GetSearchQuery
+-(void) GetSearchQuery
 {
     [super GetSearchQuery];
     [self.queryBuilder addPair:@"type" value:@"release"];
-    return [self.queryBuilder query];
 }
 
 -(SearchResult *) GetSearchResult:(NSDictionary *)jsonData

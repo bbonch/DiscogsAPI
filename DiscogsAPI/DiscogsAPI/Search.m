@@ -28,7 +28,7 @@ NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
     }
 }
 
--(NSString *) GetSearchQuery
+-(void) GetSearchQuery
 {
     [self.queryBuilder initWithQuery:BaseUrl];
     
@@ -69,8 +69,6 @@ NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
     [self SetSearchParameter:@"submitter" parameterString:self.submitter];
     
     [self SetSearchParameter:@"contributor" parameterString:self.contributor];
-    
-    return [self.queryBuilder query];
 }
 
 -(SearchResults *) GetSearchResults:(NSDictionary *)jsonData

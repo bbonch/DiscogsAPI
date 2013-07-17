@@ -20,8 +20,4 @@
     return queryBuilder;
 }
 
--(void) setQueryBuilder:(QueryBuilder *)queryBuilder
-{
-}
-
 @end
