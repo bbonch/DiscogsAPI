@@ -12,7 +12,6 @@
 		844304D01714079300EBCBA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304AA1713FC3500EBCBA7 /* Foundation.framework */; };
 		844304D61714079300EBCBA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 844304D41714079300EBCBA7 /* InfoPlist.strings */; };
 		844304DE171407EE00EBCBA7 /* libDiscogsAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304A71713FC3500EBCBA7 /* libDiscogsAPI.a */; };
-		844304E5171415E000EBCBA7 /* DataProviderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 844304E4171415E000EBCBA7 /* DataProviderTest.m */; };
 		844304E91714188A00EBCBA7 /* NSURLDataProviderAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = 844304E81714188A00EBCBA7 /* NSURLDataProviderAsync.m */; };
 		849AB8CB1774F82E00A5E0FD /* SearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 849AB8CA1774F81700A5E0FD /* SearchResults.m */; };
 		849D028D174FBD6200265372 /* SearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D028C174FBD6200265372 /* SearchTests.m */; };
@@ -53,7 +52,6 @@
 		844304D31714079300EBCBA7 /* DiscogsAPITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DiscogsAPITests-Info.plist"; sourceTree = "<group>"; };
 		844304D51714079300EBCBA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		844304DA1714079300EBCBA7 /* DiscogsAPITests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiscogsAPITests-Prefix.pch"; sourceTree = "<group>"; };
-		844304E4171415E000EBCBA7 /* DataProviderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderTest.m; sourceTree = "<group>"; };
 		844304E61714185800EBCBA7 /* DataProviderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderDelegate.h; sourceTree = "<group>"; };
 		844304E71714188A00EBCBA7 /* NSURLDataProviderAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLDataProviderAsync.h; sourceTree = "<group>"; };
 		844304E81714188A00EBCBA7 /* NSURLDataProviderAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLDataProviderAsync.m; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 		844304DF171413D800EBCBA7 /* UtilsTests */ = {
 			isa = PBXGroup;
 			children = (
-				844304E4171415E000EBCBA7 /* DataProviderTest.m */,
 				849EFA73175547F200F063BD /* QueryBuilderTests.m */,
 			);
 			name = UtilsTests;
@@ -435,7 +432,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844304E5171415E000EBCBA7 /* DataProviderTest.m in Sources */,
 				849D028D174FBD6200265372 /* SearchTests.m in Sources */,
 				849EFA74175547F200F063BD /* QueryBuilderTests.m in Sources */,
 				84A1E8D417666085006CCBF4 /* SearchAPITests.m in Sources */,

@@ -15,8 +15,6 @@ static NSString * const EventName = @"DataHasLoaded";
 @synthesize errorFromResponse;
 @synthesize responceCode;
 @synthesize receivedData;
-@synthesize dataLoaded;
-@synthesize observer;
 
 -(void) getDataWithUrl:(NSURL *)url
 {

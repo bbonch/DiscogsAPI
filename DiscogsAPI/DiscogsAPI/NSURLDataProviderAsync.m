@@ -31,13 +31,8 @@ static NSString * const EventName = @"DataHasLoaded";
     [NSURLRequest requestWithURL:url
                   cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                   timeoutInterval:10.0];
-    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    if (self.connection)
-    {
-        [self.connection start];
-        self.receivedData = [NSMutableData data];
-    }
+    self.receivedData = [NSMutableData data];
+    self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
 -(void) getDataWithString:(NSString *)stringUrl
@@ -56,13 +51,13 @@ static NSString * const EventName = @"DataHasLoaded";
     [self.receivedData appendData:data];
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+/*- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     self.receivedData = nil;
     self.errorFromResponse = error;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EventName object:self];
-}
+}*/
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
