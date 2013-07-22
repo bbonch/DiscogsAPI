@@ -1,27 +1,33 @@
 //
-//  SearchAPI.m
+//  LabelAPI.m
 //  DiscogsAPI
 //
-//  Created by Admin on 6/4/13.
+//  Created by Admin on 7/18/13.
 //  Copyright (c) 2013 bbonch. All rights reserved.
 //
 
-#import "SearchAPI.h"
+#import "LabelAPI.h"
 #import "NSURLDataProviderSync.h"
 
-@implementation SearchAPI
+@implementation LabelAPI
 
-- (SearchResults *) GetSearchResults:(Search *) search
+NSString * const BaseLabelUrl = @"http://api.discogs.com/labels/";
+
++(Label *) GetLabelById:(long) labelId
 {
-    [search GetSearchQuery];
-    NSString *searchQuery = [[search queryBuilder] query];
+    
+    return [self GetLabelByUrl:[BaseLabelUrl stringByAppendingFormat:@"%li",labelId]];
+}
+
++(Label *) GetLabelByUrl:(NSString *) labelUrl
+{
     id<DataProviderDelegate> dataProvider = [NSURLDataProviderSync new];
-    [dataProvider getDataWithString:searchQuery];
+    [dataProvider getDataWithString:labelUrl];
     NSMutableData *jsonData = [dataProvider receivedData];
     
     if (jsonData == nil)
     {
-        @throw [[NSException new] initWithName:@"QueryException" reason:@"Query is incorrect." userInfo:nil];
+        @throw [[NSException new] initWithName:@"QueryException" reason:@"Label url is incorrect." userInfo:nil];
     }
     
     NSDictionary *jsonDictionary = nil;
@@ -39,8 +45,7 @@
             if ([object isKindOfClass:[NSDictionary class]])
             {
                 jsonDictionary = object;
-                SearchResults *searchResults = [search GetSearchResults:jsonDictionary];
-                return searchResults;
+                return [Label GetLabel:jsonDictionary];
             }
             else
             {

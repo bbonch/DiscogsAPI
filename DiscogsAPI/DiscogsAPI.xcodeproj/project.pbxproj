@@ -27,6 +27,9 @@
 		849FFFA1175E8CE300AD1EB1 /* ArtistSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFFA0175E8CE200AD1EB1 /* ArtistSearch.m */; };
 		849FFFA4175E8CF800AD1EB1 /* LabelSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FFFA3175E8CF800AD1EB1 /* LabelSearch.m */; };
 		84A1E8D417666085006CCBF4 /* SearchAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1E8D317666085006CCBF4 /* SearchAPITests.m */; };
+		84A8F9801797390000768036 /* LabelAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8F97F1797390000768036 /* LabelAPITests.m */; };
+		84A8F98317973F9A00768036 /* Label.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8F98217973F9A00768036 /* Label.m */; };
+		84A8F98617973FAD00768036 /* LabelAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8F98517973FAC00768036 /* LabelAPI.m */; };
 		84CDC36F1714589800EB31AF /* NSURLDataProviderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */; };
 		84E53C6C17160EF1007F209E /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E53C6B17160EF1007F209E /* Search.m */; };
 /* End PBXBuildFile section */
@@ -80,6 +83,11 @@
 		849FFFA2175E8CF700AD1EB1 /* LabelSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelSearch.h; sourceTree = "<group>"; };
 		849FFFA3175E8CF800AD1EB1 /* LabelSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelSearch.m; sourceTree = "<group>"; };
 		84A1E8D317666085006CCBF4 /* SearchAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAPITests.m; sourceTree = "<group>"; };
+		84A8F97F1797390000768036 /* LabelAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelAPITests.m; sourceTree = "<group>"; };
+		84A8F98117973F9A00768036 /* Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Label.h; sourceTree = "<group>"; };
+		84A8F98217973F9A00768036 /* Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Label.m; sourceTree = "<group>"; };
+		84A8F98417973FAC00768036 /* LabelAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelAPI.h; sourceTree = "<group>"; };
+		84A8F98517973FAC00768036 /* LabelAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelAPI.m; sourceTree = "<group>"; };
 		84CDC36D1714589700EB31AF /* NSURLDataProviderSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLDataProviderSync.h; sourceTree = "<group>"; };
 		84CDC36E1714589700EB31AF /* NSURLDataProviderSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLDataProviderSync.m; sourceTree = "<group>"; };
 		84E53C6A17160EF1007F209E /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
@@ -169,8 +177,8 @@
 				849F67DC1776E8AC006F94ED /* Artist */,
 				849F67DB1776E88D006F94ED /* Label */,
 				849F67DA1776E856006F94ED /* Release */,
-				84E53C6A17160EF1007F209E /* Search.h */,
 				84E53C6B17160EF1007F209E /* Search.m */,
+				84E53C6A17160EF1007F209E /* Search.h */,
 				849FFF8D175E82B600AD1EB1 /* SearchResult.h */,
 				849FFF8E175E82B600AD1EB1 /* SearchResult.m */,
 				849FFF99175E873900AD1EB1 /* SearchAPI.h */,
@@ -242,6 +250,7 @@
 		844304E11714141800EBCBA7 /* DatabaseTests */ = {
 			isa = PBXGroup;
 			children = (
+				84A8F97D1797380D00768036 /* LabelTests */,
 				84E53C711716173C007F209E /* SearchTests */,
 			);
 			name = DatabaseTests;
@@ -296,9 +305,45 @@
 			name = Artist;
 			sourceTree = "<group>";
 		};
+		84A8F97A17972E3600768036 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				84A8F98117973F9A00768036 /* Label.h */,
+				84A8F98217973F9A00768036 /* Label.m */,
+				84A8F98417973FAC00768036 /* LabelAPI.h */,
+				84A8F98517973FAC00768036 /* LabelAPI.m */,
+			);
+			name = Label;
+			sourceTree = "<group>";
+		};
+		84A8F97B17972E4100768036 /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Artist;
+			sourceTree = "<group>";
+		};
+		84A8F97C17972E4800768036 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Release;
+			sourceTree = "<group>";
+		};
+		84A8F97D1797380D00768036 /* LabelTests */ = {
+			isa = PBXGroup;
+			children = (
+				84A8F97F1797390000768036 /* LabelAPITests.m */,
+			);
+			name = LabelTests;
+			sourceTree = "<group>";
+		};
 		84E53C7017161708007F209E /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				84A8F97C17972E4800768036 /* Release */,
+				84A8F97B17972E4100768036 /* Artist */,
+				84A8F97A17972E3600768036 /* Label */,
 				849D028E174FC9EB00265372 /* Common */,
 				844304BA1714009200EBCBA7 /* Search */,
 			);
@@ -425,6 +470,8 @@
 				849FFFA1175E8CE300AD1EB1 /* ArtistSearch.m in Sources */,
 				849FFFA4175E8CF800AD1EB1 /* LabelSearch.m in Sources */,
 				849AB8CB1774F82E00A5E0FD /* SearchResults.m in Sources */,
+				84A8F98317973F9A00768036 /* Label.m in Sources */,
+				84A8F98617973FAD00768036 /* LabelAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +482,7 @@
 				849D028D174FBD6200265372 /* SearchTests.m in Sources */,
 				849EFA74175547F200F063BD /* QueryBuilderTests.m in Sources */,
 				84A1E8D417666085006CCBF4 /* SearchAPITests.m in Sources */,
+				84A8F9801797390000768036 /* LabelAPITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,8 +14,6 @@
     QueryBuilder *queryBuilder;
 }
 
-extern NSString * const BaseUrl;
-
 @property int page;
 @property int perPage;
 

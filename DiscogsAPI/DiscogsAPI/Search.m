@@ -10,7 +10,7 @@
 
 @implementation Search
 
-NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
+NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
 
 - (void)SetSearchParameter:(NSString *) string parameterInt:(int) value
 {
@@ -30,7 +30,7 @@ NSString * const BaseUrl = @"http://api.discogs.com/database/search?";
 
 -(void) GetSearchQuery
 {
-    [self.queryBuilder initWithQuery:BaseUrl];
+    [self.queryBuilder initWithQuery:BaseSearchUrl];
     
     [self SetSearchParameter:@"per_page" parameterInt:self.perPage];
     
