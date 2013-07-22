@@ -13,5 +13,6 @@
 
 +(Label *) GetLabelById:(long) labelId;
 +(Label *) GetLabelByUrl:(NSString *) labelUrl;
++(NSMutableArray *) GetReleasesForLabel:(NSString *) releasesUrl;
 
 @end

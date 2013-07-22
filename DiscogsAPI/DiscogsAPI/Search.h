@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QueryObject.h"
+#import "Pagination.h"
 #import "SearchResults.h"
 #import "SearchResult.h"
 
-@interface Search : QueryObject
+@interface Search : NSObject
+{
+    QueryBuilder *queryBuilder;
+}
 
 @property NSString *q;
 @property NSString *title;
@@ -34,5 +37,6 @@
 -(void) GetSearchQuery;
 -(SearchResults *) GetSearchResults:(NSDictionary *)jsonData;
 -(SearchResult *) GetSearchResult:(NSDictionary *)jsonData;
+-(QueryBuilder *) queryBuilder;
 
 @end

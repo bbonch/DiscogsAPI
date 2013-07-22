@@ -22,14 +22,14 @@
 -(void) testGetSearchResultsForRelease
 {
     //Arrange
-    SearchAPI *searchAPI = [SearchAPI new];
     Search *search = [ReleaseSearch new];
-    search.perPage = 1;
+    Pagination *pagination = [Pagination new];
+    pagination.perPage = 1;
     search.year = @"1996";
     search.catno = @"34";
     
     //Act
-    SearchResults *results = [searchAPI GetSearchResults:search];
+    SearchResults *results = [SearchAPI GetSearchResults:search withPagination:pagination];
     NSString *nextUrl = results.nextUrl;
     NSArray *searchResults = results.searchResults;
     ReleaseSearchResult *searchResult = [searchResults objectAtIndex:0];

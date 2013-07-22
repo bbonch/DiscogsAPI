@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Pagination.h"
 
-@interface SearchResults : NSObject
+@interface SearchResults : Pagination
 
-@property NSString *nextUrl;
 @property NSMutableArray *searchResults;
 
 @end

@@ -32,10 +32,6 @@ NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
 {
     [self.queryBuilder initWithQuery:BaseSearchUrl];
     
-    [self SetSearchParameter:@"per_page" parameterInt:self.perPage];
-    
-    [self SetSearchParameter:@"page" parameterInt:self.page];
-    
     [self SetSearchParameter:@"q" parameterString:self.q];
     
     [self SetSearchParameter:@"title" parameterString:self.title];
@@ -82,11 +78,14 @@ NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
     NSDictionary *pagination = [jsonData objectForKey:@"pagination"];
     NSDictionary *urls =[pagination objectForKey:@"urls"];
     [searchResults setNextUrl:[urls objectForKey:@"next"]];
+    [searchResults setPerPage:(int)[urls objectForKey:@"per_page"]];
+    [searchResults setPage:(int)[urls objectForKey:@"page"]];
+    [searchResults setPages:(int)[urls objectForKey:@"pages"]];
     
     NSArray *results = [jsonData objectForKey:@"results"];
+    [searchResults setSearchResults:[NSMutableArray new]];
     for (NSDictionary *result in results)
     {
-        [searchResults setSearchResults:[NSMutableArray new]];
         [[searchResults searchResults] addObject:[self GetSearchResult:result]];
     }
     
@@ -103,6 +102,16 @@ NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
     sr.url = [jsonData objectForKey:@"url"];
     
     return sr;
+}
+
+-(QueryBuilder *) queryBuilder
+{
+    if (queryBuilder == nil)
+    {
+        queryBuilder = [QueryBuilder new];
+    }
+    
+    return queryBuilder;
 }
 
 @end

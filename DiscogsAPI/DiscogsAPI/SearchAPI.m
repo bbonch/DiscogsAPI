@@ -11,9 +11,11 @@
 
 @implementation SearchAPI
 
-- (SearchResults *) GetSearchResults:(Search *) search
++(SearchResults *) GetSearchResults:(Search *) search withPagination:(Pagination *)pagination
 {
     [search GetSearchQuery];
+    [[search queryBuilder] addPair:@"per_page" value:[NSString stringWithFormat:@"%i",pagination.perPage]];
+    [[search queryBuilder] addPair:@"page" value:[NSString stringWithFormat:@"%i",pagination.page]];
     NSString *searchQuery = [[search queryBuilder] query];
     id<DataProviderDelegate> dataProvider = [NSURLDataProviderSync new];
     [dataProvider getDataWithString:searchQuery];

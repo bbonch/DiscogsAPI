@@ -17,7 +17,7 @@
     label.identifier = (long)[jsonData objectForKey:@"id"];
     label.name = [jsonData objectForKey:@"name"];
     label.profile = [jsonData objectForKey:@"profile"];
-    label.releaseUrl = [jsonData objectForKey:@"releases_url"];
+    label.releasesUrl = [jsonData objectForKey:@"releases_url"];
     
     return label;
 }

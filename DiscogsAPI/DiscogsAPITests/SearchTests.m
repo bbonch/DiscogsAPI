@@ -47,7 +47,9 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
 {
     //Arrange
     Search *artistSearch = [ArtistSearch new];
-    [artistSearch setPerPage:11];
+    [artistSearch GetSearchQuery];
+    [[artistSearch queryBuilder] addPair:@"per_page" value:[NSString stringWithFormat:@"%i",11]];
+    [[artistSearch queryBuilder] addPair:@"page" value:[NSString stringWithFormat:@"%i",1]];
     id<DataProviderDelegate> provider = [NSURLDataProviderSync new];
     
     //Act

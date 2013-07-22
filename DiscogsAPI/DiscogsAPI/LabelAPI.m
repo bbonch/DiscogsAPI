@@ -59,4 +59,9 @@ NSString * const BaseLabelUrl = @"http://api.discogs.com/labels/";
     }
 }
 
++(NSMutableArray *) GetReleasesForLabel:(NSString *) releasesUrl
+{
+    return nil;
+}
+
 @end

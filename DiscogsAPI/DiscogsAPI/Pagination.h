@@ -9,14 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "QueryBuilder.h"
 
-@interface QueryObject : NSObject
-{
-    QueryBuilder *queryBuilder;
-}
+@interface Pagination : NSObject
 
 @property int page;
 @property int perPage;
-
--(QueryBuilder *) queryBuilder;
+@property int pages;
+@property NSString *nextUrl;
+@property NSString *prevUrl;
 
 @end
