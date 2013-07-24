@@ -78,6 +78,7 @@ NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
     NSDictionary *pagination = [jsonData objectForKey:@"pagination"];
     NSDictionary *urls =[pagination objectForKey:@"urls"];
     [searchResults setNextUrl:[urls objectForKey:@"next"]];
+    [searchResults setPrevUrl:[urls objectForKey:@"prev"]];
     [searchResults setPerPage:(int)[urls objectForKey:@"per_page"]];
     [searchResults setPage:(int)[urls objectForKey:@"page"]];
     [searchResults setPages:(int)[urls objectForKey:@"pages"]];

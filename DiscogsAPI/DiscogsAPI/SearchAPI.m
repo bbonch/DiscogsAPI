@@ -20,8 +20,9 @@
     id<DataProviderDelegate> dataProvider = [NSURLDataProviderSync new];
     [dataProvider getDataWithString:searchQuery];
     NSMutableData *jsonData = [dataProvider receivedData];
+    NSHTTPURLResponse *responseCode = [dataProvider responceCode];
     
-    if (jsonData == nil)
+    if ([responseCode statusCode] == 404)
     {
         @throw [[NSException new] initWithName:@"QueryException" reason:@"Query is incorrect." userInfo:nil];
     }
