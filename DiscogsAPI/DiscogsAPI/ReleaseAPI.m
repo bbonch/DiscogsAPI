@@ -1,30 +1,34 @@
 //
-//  SearchAPI.m
+//  ReleaseAPI.m
 //  DiscogsAPI
 //
-//  Created by Admin on 6/4/13.
+//  Created by Денис on 7/27/13.
 //  Copyright (c) 2013 bbonch. All rights reserved.
 //
 
-#import "SearchAPI.h"
+#import "ReleaseAPI.h"
+#import "DataProviderDelegate.h"
 #import "URLDataProviderSync.h"
 
-@implementation SearchAPI
+@implementation ReleaseAPI
 
-+(SearchResults *) GetSearchResults:(Search *) search withPagination:(Pagination *)pagination
+NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
+
++(Release *) GetReleaseById:(long) releaseId
 {
-    [search GetSearchQuery];
-    [[search queryBuilder] addPair:@"per_page" value:[NSString stringWithFormat:@"%i",pagination.perPage]];
-    [[search queryBuilder] addPair:@"page" value:[NSString stringWithFormat:@"%i",pagination.page]];
-    NSString *searchQuery = [[search queryBuilder] query];
+    return [self GetReleaseByUrl:[BaseReleaseUrl stringByAppendingFormat:@"%li",releaseId]];
+}
+
++(Release *) GetReleaseByUrl:(NSString *) releaseUrl
+{
     id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
-    [dataProvider getDataWithString:searchQuery];
+    [dataProvider getDataWithString:releaseUrl];
     NSMutableData *jsonData = [dataProvider receivedData];
     NSHTTPURLResponse *responseCode = [dataProvider responceCode];
     
     if ([responseCode statusCode] == 404)
     {
-        @throw [[NSException new] initWithName:@"QueryException" reason:@"Query is incorrect." userInfo:nil];
+        @throw [[NSException new] initWithName:@"QueryException" reason:@"Label url is incorrect." userInfo:nil];
     }
     
     NSDictionary *jsonDictionary = nil;
@@ -42,8 +46,7 @@
             if ([object isKindOfClass:[NSDictionary class]])
             {
                 jsonDictionary = object;
-                SearchResults *searchResults = [search GetSearchResults:jsonDictionary];
-                return searchResults;
+                return [Release GetRelease:jsonDictionary];
             }
             else
             {

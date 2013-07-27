@@ -7,7 +7,7 @@
 //
 
 #import "ArtistAPI.h"
-#import "NSURLDataProviderSync.h"
+#import "URLDataProviderSync.h"
 
 @implementation ArtistAPI
 
@@ -21,7 +21,7 @@ NSString * const BaseArtistUrl = @"http://api.discogs.com/artists/";
 
 +(Artist *) GetArtistByUrl:(NSString *) artistUrl
 {
-    id<DataProviderDelegate> dataProvider = [NSURLDataProviderSync new];
+    id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
     [dataProvider getDataWithString:artistUrl];
     NSMutableData *jsonData = [dataProvider receivedData];
     NSHTTPURLResponse *responseCode = [dataProvider responceCode];
@@ -62,7 +62,7 @@ NSString * const BaseArtistUrl = @"http://api.discogs.com/artists/";
 
 +(NSMutableArray *) GetReleasesForArtist:(NSString *) releasesUrl
 {
-    id<DataProviderDelegate> dataProvider = [NSURLDataProviderSync new];
+    id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
     [dataProvider getDataWithString:releasesUrl];
     NSMutableData *jsonData = [dataProvider receivedData];
     NSHTTPURLResponse *responseCode = [dataProvider responceCode];

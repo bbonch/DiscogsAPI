@@ -7,7 +7,7 @@
 //
 
 #import "LabelAPI.h"
-#import "NSURLDataProviderSync.h"
+#import "URLDataProviderSync.h"
 
 @implementation LabelAPI
 
@@ -21,7 +21,7 @@ NSString * const BaseLabelUrl = @"http://api.discogs.com/labels/";
 
 +(Label *) GetLabelByUrl:(NSString *) labelUrl
 {
-    id<DataProviderDelegate> dataProvider = [NSURLDataProviderSync new];
+    id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
     [dataProvider getDataWithString:labelUrl];
     NSMutableData *jsonData = [dataProvider receivedData];
     NSHTTPURLResponse *responseCode = [dataProvider responceCode];
@@ -62,7 +62,7 @@ NSString * const BaseLabelUrl = @"http://api.discogs.com/labels/";
 
 +(NSMutableArray *) GetReleasesForLabel:(NSString *) releasesUrl
 {
-    id<DataProviderDelegate> dataProvider = [NSURLDataProviderSync new];
+    id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
     [dataProvider getDataWithString:releasesUrl];
     NSMutableData *jsonData = [dataProvider receivedData];
     NSHTTPURLResponse *responseCode = [dataProvider responceCode];

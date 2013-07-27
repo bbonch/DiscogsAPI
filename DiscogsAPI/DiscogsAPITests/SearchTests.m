@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "Search.h"
 #import "ArtistSearch.h"
-#import "NSURLDataProviderSync.h"
+#import "URLDataProviderSync.h"
 
 @interface SearchTests : SenTestCase
 
@@ -50,7 +50,7 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
     [artistSearch GetSearchQuery];
     [[artistSearch queryBuilder] addPair:@"per_page" value:[NSString stringWithFormat:@"%i",11]];
     [[artistSearch queryBuilder] addPair:@"page" value:[NSString stringWithFormat:@"%i",1]];
-    id<DataProviderDelegate> provider = [NSURLDataProviderSync new];
+    id<DataProviderDelegate> provider = [URLDataProviderSync new];
     
     //Act
     [artistSearch GetSearchQuery];

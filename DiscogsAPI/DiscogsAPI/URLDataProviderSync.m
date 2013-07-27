@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 bbonch. All rights reserved.
 //
 
-#import "NSURLDataProviderSync.h"
+#import "URLDataProviderSync.h"
 
 static NSString * const EventName = @"DataHasLoaded";
 
-@implementation NSURLDataProviderSync
+@implementation URLDataProviderSync
 
 @synthesize errorFromResponse;
 @synthesize responceCode;
