@@ -67,30 +67,30 @@ NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
     [self SetSearchParameter:@"contributor" parameterString:self.contributor];
 }
 
--(SearchResults *) GetSearchResults:(NSDictionary *)jsonData
+-(QueryResult *) GetSearchResults:(NSDictionary *)jsonData
 {
     if (jsonData == nil)
     {
         @throw [[NSException new] initWithName:@"ArgumentException" reason:@"Argument is nil" userInfo:nil];
     }
     
-    SearchResults *searchResults = [SearchResults new];
+    QueryResult *queryResults = [QueryResult new];
     NSDictionary *pagination = [jsonData objectForKey:@"pagination"];
     NSDictionary *urls =[pagination objectForKey:@"urls"];
-    [searchResults setNextUrl:[urls objectForKey:@"next"]];
-    [searchResults setPrevUrl:[urls objectForKey:@"prev"]];
-    [searchResults setPerPage:(int)[urls objectForKey:@"per_page"]];
-    [searchResults setPage:(int)[urls objectForKey:@"page"]];
-    [searchResults setPages:(int)[urls objectForKey:@"pages"]];
+    [queryResults setNextUrl:[urls objectForKey:@"next"]];
+    [queryResults setPrevUrl:[urls objectForKey:@"prev"]];
+    [queryResults setPerPage:(int)[urls objectForKey:@"per_page"]];
+    [queryResults setPage:(int)[urls objectForKey:@"page"]];
+    [queryResults setPages:(int)[urls objectForKey:@"pages"]];
     
     NSArray *results = [jsonData objectForKey:@"results"];
-    [searchResults setSearchResults:[NSMutableArray new]];
+    [queryResults setResults:[NSMutableArray new]];
     for (NSDictionary *result in results)
     {
-        [[searchResults searchResults] addObject:[self GetSearchResult:result]];
+        [[queryResults results] addObject:[self GetSearchResult:result]];
     }
     
-    return searchResults;
+    return queryResults;
 }
 
 -(SearchResult *) GetSearchResult:(NSDictionary *)jsonData

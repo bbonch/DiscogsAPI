@@ -11,7 +11,7 @@
 
 @implementation SearchAPI
 
-+(SearchResults *) GetSearchResults:(Search *) search withPagination:(Pagination *)pagination
++(QueryResult *) GetSearchResults:(Search *) search withPagination:(Pagination *)pagination
 {
     [search GetSearchQuery];
     [[search queryBuilder] addPair:@"per_page" value:[NSString stringWithFormat:@"%i",pagination.perPage]];
@@ -42,7 +42,7 @@
             if ([object isKindOfClass:[NSDictionary class]])
             {
                 jsonDictionary = object;
-                SearchResults *searchResults = [search GetSearchResults:jsonDictionary];
+                QueryResult *searchResults = [search GetSearchResults:jsonDictionary];
                 return searchResults;
             }
             else

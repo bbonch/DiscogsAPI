@@ -1,16 +1,16 @@
 //
-//  SearchResults.h
+//  QueryResult.h
 //  DiscogsAPI
 //
-//  Created by Admin on 6/22/13.
+//  Created by Денис on 7/29/13.
 //  Copyright (c) 2013 bbonch. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "Pagination.h"
 
-@interface SearchResults : Pagination
+@interface QueryResult : Pagination
 
-@property NSMutableArray *searchResults;
+@property NSMutableArray *results;
 
 @end

@@ -42,7 +42,7 @@
     NSString *releasesUrl = @"http://api.discogs.com/artists/994/releases";
     
     //Act
-    NSMutableArray *releasesIds = [ArtistAPI GetReleasesForArtist:releasesUrl];
+    NSMutableArray *releasesIds = [ArtistAPI GetReleasesForArtist:releasesUrl withPagination:nil];
     NSUInteger count = 22;
     //Assert
     STAssertEquals([releasesIds count], count, @"GetReleasesForArtist doesn't work!");}

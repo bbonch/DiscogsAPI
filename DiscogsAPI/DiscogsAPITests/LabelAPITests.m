@@ -64,7 +64,7 @@
     NSString *releasesUrl = @"http://api.discogs.com/labels/994/releases";
     
     //Act
-    NSMutableArray *releasesIds = [LabelAPI GetReleasesForLabel:releasesUrl];
+    NSMutableArray *releasesIds = [LabelAPI GetReleasesForLabel:releasesUrl withPagination:nil];
     NSUInteger count = 27;
     //Assert
     STAssertEquals([releasesIds count], count, @"GetReleasesForLabel doesn't work!");

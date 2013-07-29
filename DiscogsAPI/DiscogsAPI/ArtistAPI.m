@@ -8,6 +8,7 @@
 
 #import "ArtistAPI.h"
 #import "URLDataProviderSync.h"
+#import "QueryBuilder.h"
 
 @implementation ArtistAPI
 
@@ -15,7 +16,6 @@ NSString * const BaseArtistUrl = @"http://api.discogs.com/artists/";
 
 +(Artist *) GetArtistById:(long) artistId
 {
-    
     return [self GetArtistByUrl:[BaseArtistUrl stringByAppendingFormat:@"%li",artistId]];
 }
 
@@ -60,10 +60,19 @@ NSString * const BaseArtistUrl = @"http://api.discogs.com/artists/";
     }
 }
 
-+(NSMutableArray *) GetReleasesForArtist:(NSString *) releasesUrl
++(NSMutableArray *) GetReleasesForArtist:(NSString *) releasesUrl withPagination:(Pagination *) pagination
 {
+    QueryBuilder *queryBuilder = [QueryBuilder new];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:releasesUrl];
+    [url appendString:@"?"];
+    [queryBuilder initWithQuery:url];
+    int perPage = pagination == nil ? 50 : pagination.perPage;
+    int page = pagination == nil ? 1 : pagination.page;
+    [queryBuilder addPair:@"per_page" value:[NSString stringWithFormat:@"%i",perPage]];
+    [queryBuilder addPair:@"page" value:[NSString stringWithFormat:@"%i",page]];
+    
     id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
-    [dataProvider getDataWithString:releasesUrl];
+    [dataProvider getDataWithString:queryBuilder.query];
     NSMutableData *jsonData = [dataProvider receivedData];
     NSHTTPURLResponse *responseCode = [dataProvider responceCode];
     

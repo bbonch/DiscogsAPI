@@ -12,6 +12,7 @@
 #import "Search.h"
 #import "ReleaseSearch.h"
 #import "ReleaseSearchResult.h"
+#import "QueryResult.h"
 
 @interface SearchAPITests : SenTestCase
 
@@ -29,9 +30,9 @@
     search.catno = @"34";
     
     //Act
-    SearchResults *results = [SearchAPI GetSearchResults:search withPagination:pagination];
+    QueryResult *results = [SearchAPI GetSearchResults:search withPagination:pagination];
     NSString *nextUrl = results.nextUrl;
-    NSArray *searchResults = results.searchResults;
+    NSArray *searchResults = results.results;
     ReleaseSearchResult *searchResult = [searchResults objectAtIndex:0];
     NSUInteger count = 1;
     

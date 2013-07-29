@@ -16,4 +16,5 @@
 @property NSString *releasesUrl;
 
 +(Artist *) GetArtist:(NSDictionary *) jsonData;
+
 @end

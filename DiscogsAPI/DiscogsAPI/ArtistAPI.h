@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Artist.h"
+#import "Pagination.h"
 
 @interface ArtistAPI : NSObject
 
 +(Artist *) GetArtistById:(long) artistId;
 +(Artist *) GetArtistByUrl:(NSString *) artistUrl;
-+(NSMutableArray *) GetReleasesForArtist:(NSString *) releasesUrl;
++(NSMutableArray *) GetReleasesForArtist:(NSString *) releasesUrl withPagination:(Pagination *) pagination;
 
 @end

@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SearchResults.h"
 #import "Search.h"
 
 @interface SearchAPI : NSObject
 
-+(SearchResults *) GetSearchResults:(Search *) search withPagination:(Pagination *) pagination;
++(QueryResult *) GetSearchResults:(Search *) search withPagination:(Pagination *) pagination;
 
 @end

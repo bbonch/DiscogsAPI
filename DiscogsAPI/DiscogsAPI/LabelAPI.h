@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Label.h"
+#import "Pagination.h"
 
 @interface LabelAPI : NSObject
 
 +(Label *) GetLabelById:(long) labelId;
 +(Label *) GetLabelByUrl:(NSString *) labelUrl;
-+(NSMutableArray *) GetReleasesForLabel:(NSString *) releasesUrl;
++(NSMutableArray *) GetReleasesForLabel:(NSString *) releasesUrl withPagination:(Pagination *)pagination;
 
 @end
