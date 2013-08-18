@@ -16,6 +16,7 @@
     
     release.identifier = (long)[jsonData objectForKey:@"id"];
     release.name = [jsonData objectForKey:@"title"];
+    release.year = [jsonData objectForKey:@"year"];
     NSArray *videos = [jsonData objectForKey:@"videos"];
     NSMutableDictionary *releaseVideos = [[NSMutableDictionary alloc] initWithCapacity:videos.count];
     for (NSDictionary * video in videos) {

@@ -22,6 +22,13 @@
 		1FB5A63517A46CD0006281C3 /* Search.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84E53C6A17160EF1007F209E /* Search.h */; };
 		1FB5A63617A46CD5006281C3 /* SearchAPI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF99175E873900AD1EB1 /* SearchAPI.h */; };
 		1FB5A63817A46CF4006281C3 /* SearchResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF8D175E82B600AD1EB1 /* SearchResult.h */; };
+		1FF2C0F417C0134600F723A5 /* ArtistSearch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF9F175E8CE200AD1EB1 /* ArtistSearch.h */; };
+		1FF2C0F517C0134600F723A5 /* ArtistSearchResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF93175E846200AD1EB1 /* ArtistSearchResult.h */; };
+		1FF2C0F617C0134600F723A5 /* LabelSearch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFFA2175E8CF700AD1EB1 /* LabelSearch.h */; };
+		1FF2C0F717C0134600F723A5 /* LabelSearchResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF96175E847200AD1EB1 /* LabelSearchResult.h */; };
+		1FF2C0F817C0134600F723A5 /* ReleaseSearch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF9C175E8CC100AD1EB1 /* ReleaseSearch.h */; };
+		1FF2C0F917C0134600F723A5 /* ReleaseSearchResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF90175E844A00AD1EB1 /* ReleaseSearchResult.h */; };
+		1FF2C10117C016F200F723A5 /* QueryBuilder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849EFA7517554A1B00F063BD /* QueryBuilder.h */; };
 		844304AB1713FC3500EBCBA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304AA1713FC3500EBCBA7 /* Foundation.framework */; };
 		844304CD1714079300EBCBA7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304CC1714079300EBCBA7 /* SenTestingKit.framework */; };
 		844304D01714079300EBCBA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304AA1713FC3500EBCBA7 /* Foundation.framework */; };
@@ -58,6 +65,13 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				1FF2C10117C016F200F723A5 /* QueryBuilder.h in CopyFiles */,
+				1FF2C0F417C0134600F723A5 /* ArtistSearch.h in CopyFiles */,
+				1FF2C0F517C0134600F723A5 /* ArtistSearchResult.h in CopyFiles */,
+				1FF2C0F617C0134600F723A5 /* LabelSearch.h in CopyFiles */,
+				1FF2C0F717C0134600F723A5 /* LabelSearchResult.h in CopyFiles */,
+				1FF2C0F817C0134600F723A5 /* ReleaseSearch.h in CopyFiles */,
+				1FF2C0F917C0134600F723A5 /* ReleaseSearchResult.h in CopyFiles */,
 				1FB5A62E17A46CAF006281C3 /* Release.h in CopyFiles */,
 				1FB5A62F17A46CB6006281C3 /* ReleaseAPI.h in CopyFiles */,
 				1FB5A63117A46CBE006281C3 /* ArtistAPI.h in CopyFiles */,

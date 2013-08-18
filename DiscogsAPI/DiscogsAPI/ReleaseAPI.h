@@ -13,5 +13,6 @@
 
 +(Release *) GetReleaseById:(long) releaseId;
 +(Release *) GetReleaseByUrl:(NSString *) releaseUrl;
++(NSMutableArray *) GetReleasesByUrl:(NSString *) releasesUrl;
 
 @end

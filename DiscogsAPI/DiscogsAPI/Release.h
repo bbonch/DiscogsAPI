@@ -13,6 +13,7 @@
 @property long identifier;
 @property NSString *name;
 @property NSDictionary *tracks;
+@property NSString *year;
 
 +(Release *) GetRelease:(NSDictionary *)jsonData;
 
