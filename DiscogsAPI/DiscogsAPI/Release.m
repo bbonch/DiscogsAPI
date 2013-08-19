@@ -29,6 +29,14 @@
     }
     release.tracks = releaseVideos;
     
+    NSArray *labels = [jsonData objectForKey:@"labels"];
+    NSDictionary *labelD = [labels objectAtIndex:0];
+    release.label = [labelD objectForKey:@"name"];
+    
+    NSArray *artists = [jsonData objectForKey:@"artists"];
+    NSDictionary *artistD = [labels objectAtIndex:0];
+    release.artist = [artistD objectForKey:@"name"];
+    
     return release;
 }
 
