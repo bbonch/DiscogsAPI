@@ -14,6 +14,8 @@
 @property NSString *name;
 @property NSDictionary *tracks;
 @property NSString *year;
+@property NSString *label;
+@property NSString *artist;
 
 +(Release *) GetRelease:(NSDictionary *)jsonData;
 
