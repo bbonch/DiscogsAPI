@@ -60,8 +60,14 @@ NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
     }
 }
 
-+(NSMutableArray *) GetReleasesByUrl:(NSString *) releasesUrl
++(QueryResult *) GetReleasesByUrl:(NSString *) releasesUrl withPagination:(Pagination *) pagination
 {
+    QueryBuilder * queryBuilder = [QueryBuilder new];
+    [queryBuilder initWithQuery:releasesUrl];
+    [queryBuilder addPair:@"per_page" value:[NSString stringWithFormat:@"%i",pagination.perPage]];
+    [queryBuilder addPair:@"page" value:[NSString stringWithFormat:@"%i",pagination.page]];
+    releasesUrl = [queryBuilder query];
+    
     id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
     [dataProvider getDataWithString:releasesUrl];
     NSMutableData *jsonData = [dataProvider receivedData];
@@ -89,18 +95,29 @@ NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
                 jsonDictionary = object;
                 NSArray * releases = [jsonDictionary objectForKey:@"releases"];
                 
+                QueryResult *queryResults = [QueryResult new];
+                NSDictionary *paginationD = [jsonDictionary objectForKey:@"pagination"];
+                NSDictionary *urls =[paginationD objectForKey:@"urls"];
+                [queryResults setNextUrl:[urls objectForKey:@"next"]];
+                [queryResults setPrevUrl:[urls objectForKey:@"prev"]];
+                [queryResults setPerPage:(int)[paginationD objectForKey:@"per_page"]];
+                [queryResults setPage:(int)[paginationD objectForKey:@"page"]];
+                [queryResults setPages:(int)[paginationD objectForKey:@"pages"]];
+
+                
                 NSMutableArray * releasesArray = [[NSMutableArray alloc] initWithCapacity:[releases count]];
-                for (NSDictionary * release in releases)
+                for (NSDictionary * releaseD in releases)
                 {
-                    NSString * releaseType = [release objectForKey:@"type"];
-                    if ([releaseType isEqual:@"release"])
+                    NSString * releaseUrl = [releaseD objectForKey:@"resource_url"];
+                    Release * release = [ReleaseAPI GetReleaseByUrl:releaseUrl];
+                    if (release != nil)
                     {
-                        NSString * releaseUrl = [release objectForKey:@"resource_url"];
-                        [releasesArray addObject:[ReleaseAPI GetReleaseByUrl:releaseUrl]];
+                        [releasesArray addObject:release];
                     }
                 }
                 
-                return releasesArray;
+                [queryResults setResults:releasesArray];
+                return queryResults;
             }
             else
             {

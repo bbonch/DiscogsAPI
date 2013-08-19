@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Release.h"
+#import "QueryResult.h"
 
 @interface ReleaseAPI : NSObject
 
 +(Release *) GetReleaseById:(long) releaseId;
 +(Release *) GetReleaseByUrl:(NSString *) releaseUrl;
-+(NSMutableArray *) GetReleasesByUrl:(NSString *) releasesUrl;
++(QueryResult *) GetReleasesByUrl:(NSString *) releasesUrl withPagination:(Pagination *) pagination;
 
 @end
