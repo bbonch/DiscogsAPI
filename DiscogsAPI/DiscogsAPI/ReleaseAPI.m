@@ -100,9 +100,9 @@ NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
                 NSDictionary *urls =[paginationD objectForKey:@"urls"];
                 [queryResults setNextUrl:[urls objectForKey:@"next"]];
                 [queryResults setPrevUrl:[urls objectForKey:@"prev"]];
-                [queryResults setPerPage:(int)[paginationD objectForKey:@"per_page"]];
-                [queryResults setPage:(int)[paginationD objectForKey:@"page"]];
-                [queryResults setPages:(int)[paginationD objectForKey:@"pages"]];
+                [queryResults setPerPage:[[paginationD objectForKey:@"per_page"] intValue]];
+                [queryResults setPage:[[paginationD objectForKey:@"page"] intValue]];
+                [queryResults setPages:[[paginationD objectForKey:@"pages"] intValue]];
 
                 
                 NSMutableArray * releasesArray = [[NSMutableArray alloc] initWithCapacity:[releases count]];

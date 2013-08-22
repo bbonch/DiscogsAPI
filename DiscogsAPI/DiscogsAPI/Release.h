@@ -16,6 +16,9 @@
 @property NSString *year;
 @property NSString *label;
 @property NSString *artist;
+@property NSString *labelName;
+@property NSString *artistName;
+@property NSString *genre;
 
 +(Release *) GetRelease:(NSDictionary *)jsonData;
 
