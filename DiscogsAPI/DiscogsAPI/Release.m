@@ -23,6 +23,8 @@
     release.name = [jsonData objectForKey:@"title"];
     release.year = [jsonData objectForKey:@"year"];
     release.genre = [[jsonData objectForKey:@"genres"] objectAtIndex:0];
+    release.labelName = [[jsonData objectForKey:@"labels"] objectAtIndex:0];
+    release.artistName = [[jsonData objectForKey:@"artists"] objectAtIndex:0];
     NSArray *videos = [jsonData objectForKey:@"videos"];
     
     if (videos == nil)
