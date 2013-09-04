@@ -22,6 +22,8 @@
 		1FB5A63517A46CD0006281C3 /* Search.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84E53C6A17160EF1007F209E /* Search.h */; };
 		1FB5A63617A46CD5006281C3 /* SearchAPI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF99175E873900AD1EB1 /* SearchAPI.h */; };
 		1FB5A63817A46CF4006281C3 /* SearchResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF8D175E82B600AD1EB1 /* SearchResult.h */; };
+		1FF1B79A17CE8182006B9ADF /* DataProviderDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 844304E61714185800EBCBA7 /* DataProviderDelegate.h */; };
+		1FF1B79B17CE8182006B9ADF /* URLDataProviderSync.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84CDC36D1714589700EB31AF /* URLDataProviderSync.h */; };
 		1FF2C0F417C0134600F723A5 /* ArtistSearch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF9F175E8CE200AD1EB1 /* ArtistSearch.h */; };
 		1FF2C0F517C0134600F723A5 /* ArtistSearchResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFF93175E846200AD1EB1 /* ArtistSearchResult.h */; };
 		1FF2C0F617C0134600F723A5 /* LabelSearch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849FFFA2175E8CF700AD1EB1 /* LabelSearch.h */; };
@@ -65,6 +67,8 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				1FF1B79A17CE8182006B9ADF /* DataProviderDelegate.h in CopyFiles */,
+				1FF1B79B17CE8182006B9ADF /* URLDataProviderSync.h in CopyFiles */,
 				1FF2C10117C016F200F723A5 /* QueryBuilder.h in CopyFiles */,
 				1FF2C0F417C0134600F723A5 /* ArtistSearch.h in CopyFiles */,
 				1FF2C0F517C0134600F723A5 /* ArtistSearchResult.h in CopyFiles */,

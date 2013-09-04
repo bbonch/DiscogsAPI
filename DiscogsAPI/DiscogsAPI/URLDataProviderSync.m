@@ -22,7 +22,7 @@ static NSString * const EventName = @"DataHasLoaded";
     request.HTTPMethod = @"GET";
     request.URL = url;
     
-    NSError *errorLocal = [NSError new];
+    NSError *errorLocal = nil;
     NSHTTPURLResponse *responceCodeLocal = nil;
     
     receivedData = (NSMutableData *)[NSURLConnection sendSynchronousRequest:request returningResponse:&responceCodeLocal error:&errorLocal];
