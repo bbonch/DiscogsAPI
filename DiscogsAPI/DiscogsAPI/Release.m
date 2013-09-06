@@ -58,14 +58,7 @@
         return YES;
     }
     
-    NSString * masterUrl = [jsonData objectForKey:@"master_url"];
-    
-    if (masterUrl == nil)
-    {
-        return YES;
-    }
-    
-    return NO;
+    return YES;
 }
 
 @end
