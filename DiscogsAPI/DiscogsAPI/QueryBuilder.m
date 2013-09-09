@@ -23,7 +23,7 @@
 
 -(void) addPair:(NSString *)key value:(NSString *)value
 {
-    if (([key length] == 0) || ([value length] == 0))
+    if ([key length] == 0)
     {
         @throw [[NSException new] initWithName:@"AurgumentException" reason:@"Key and value mustn't be empty" userInfo:nil];
     }
