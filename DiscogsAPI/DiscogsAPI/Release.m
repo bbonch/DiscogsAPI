@@ -23,6 +23,8 @@
     release.name = [jsonData objectForKey:@"title"];
     release.year = [jsonData objectForKey:@"year"];
     release.genre = [[jsonData objectForKey:@"genres"] objectAtIndex:0];
+    release.style = [[jsonData objectForKey:@"styles"] objectAtIndex:0];
+    release.imageUrl = [[[jsonData objectForKey:@"images"] objectAtIndex:0] objectForKey:@"uri150"];
     release.labelName = [[[jsonData objectForKey:@"labels"] objectAtIndex:0] objectForKey:@"name"];
     if (release.labelName == nil)
     {
