@@ -12,7 +12,7 @@
 
 @property long identifier;
 @property NSString *name;
-@property NSMutableDictionary *tracks;
+@property NSMutableArray *tracks;
 @property NSString *year;
 @property NSString *label;
 @property NSString *artist;

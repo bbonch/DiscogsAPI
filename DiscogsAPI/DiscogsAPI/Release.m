@@ -7,6 +7,7 @@
 //
 
 #import "Release.h"
+#import "ReleaseTrack.h"
 
 @implementation Release
 
@@ -22,6 +23,10 @@
     release.identifier = (long)[jsonData objectForKey:@"id"];
     release.name = [jsonData objectForKey:@"title"];
     release.year = [jsonData objectForKey:@"year"];
+    if (release.year == nil)
+    {
+        release.year = @"unknown year";
+    }
     release.genre = [[jsonData objectForKey:@"genres"] objectAtIndex:0];
     release.style = [[jsonData objectForKey:@"styles"] objectAtIndex:0];
     release.imageUrl = [[[jsonData objectForKey:@"images"] objectAtIndex:0] objectForKey:@"uri150"];
@@ -35,18 +40,36 @@
     {
         release.artistName = @"unknown artist";
     }
-    NSArray *videos = [jsonData objectForKey:@"videos"];
+    NSArray *tracks = [jsonData objectForKey:@"tracklist"];
     
-    if (videos == nil)
+    if (tracks == nil)
     {
         return nil;
     }
     
-    NSMutableDictionary *releaseVideos = [[NSMutableDictionary alloc] initWithCapacity:videos.count];
-    for (NSDictionary * video in videos) {
-        [releaseVideos setObject:[video objectForKey:@"uri"] forKey:[video objectForKey:@"title"]];
+    NSMutableArray *releaseTracks = [[NSMutableArray alloc] initWithCapacity:tracks.count];
+    for (NSDictionary * track in tracks)
+    {
+        ReleaseTrack * releaseTrack = [ReleaseTrack new];
+        releaseTrack.duration = [track objectForKey:@"duration"];
+        releaseTrack.title = [track objectForKey:@"title"];
+        
+        if ([[release.artistName lowercaseString]  isEqual: @"various"])
+        {
+            NSArray *artists = [track objectForKey:@"artists"];
+            if (artists != nil)
+            {
+                releaseTrack.artist = [[artists objectAtIndex:0] objectForKey:@"name"];
+            }
+        }
+        else
+        {
+            releaseTrack.artist = release.artistName;
+        }
+        
+        [releaseTracks addObject:releaseTrack];
     }
-    release.tracks = releaseVideos;
+    release.tracks = releaseTracks;
     
     return release;
 }

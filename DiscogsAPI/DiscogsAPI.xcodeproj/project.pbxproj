@@ -37,6 +37,7 @@
 		844304D61714079300EBCBA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 844304D41714079300EBCBA7 /* InfoPlist.strings */; };
 		844304DE171407EE00EBCBA7 /* libDiscogsAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304A71713FC3500EBCBA7 /* libDiscogsAPI.a */; };
 		844304E91714188A00EBCBA7 /* URLDataProviderAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = 844304E81714188A00EBCBA7 /* URLDataProviderAsync.m */; };
+		84987604180216F700A01399 /* ReleaseTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 84987603180216F700A01399 /* ReleaseTrack.m */; };
 		849D028D174FBD6200265372 /* SearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D028C174FBD6200265372 /* SearchTests.m */; };
 		849D0291174FCA1C00265372 /* Pagination.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D0290174FCA1C00265372 /* Pagination.m */; };
 		849EFA74175547F200F063BD /* QueryBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EFA73175547F200F063BD /* QueryBuilderTests.m */; };
@@ -111,6 +112,8 @@
 		844304E61714185800EBCBA7 /* DataProviderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderDelegate.h; sourceTree = "<group>"; };
 		844304E71714188A00EBCBA7 /* URLDataProviderAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLDataProviderAsync.h; sourceTree = "<group>"; };
 		844304E81714188A00EBCBA7 /* URLDataProviderAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLDataProviderAsync.m; sourceTree = "<group>"; };
+		84987602180216F700A01399 /* ReleaseTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseTrack.h; sourceTree = "<group>"; };
+		84987603180216F700A01399 /* ReleaseTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseTrack.m; sourceTree = "<group>"; };
 		849D028C174FBD6200265372 /* SearchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTests.m; sourceTree = "<group>"; };
 		849D028F174FCA1C00265372 /* Pagination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pagination.h; sourceTree = "<group>"; };
 		849D0290174FCA1C00265372 /* Pagination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pagination.m; sourceTree = "<group>"; };
@@ -398,6 +401,8 @@
 			children = (
 				1FB5A62817A4553D006281C3 /* Release.h */,
 				1FB5A62917A4553D006281C3 /* Release.m */,
+				84987602180216F700A01399 /* ReleaseTrack.h */,
+				84987603180216F700A01399 /* ReleaseTrack.m */,
 				1FB5A62B17A4554D006281C3 /* ReleaseAPI.h */,
 				1FB5A62C17A4554D006281C3 /* ReleaseAPI.m */,
 			);
@@ -540,6 +545,7 @@
 			files = (
 				844304E91714188A00EBCBA7 /* URLDataProviderAsync.m in Sources */,
 				84CDC36F1714589800EB31AF /* URLDataProviderSync.m in Sources */,
+				84987604180216F700A01399 /* ReleaseTrack.m in Sources */,
 				84E53C6C17160EF1007F209E /* Search.m in Sources */,
 				849D0291174FCA1C00265372 /* Pagination.m in Sources */,
 				849EFA7717554A1B00F063BD /* QueryBuilder.m in Sources */,
