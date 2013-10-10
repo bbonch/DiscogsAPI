@@ -38,6 +38,7 @@
 		844304DE171407EE00EBCBA7 /* libDiscogsAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 844304A71713FC3500EBCBA7 /* libDiscogsAPI.a */; };
 		844304E91714188A00EBCBA7 /* URLDataProviderAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = 844304E81714188A00EBCBA7 /* URLDataProviderAsync.m */; };
 		84987604180216F700A01399 /* ReleaseTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 84987603180216F700A01399 /* ReleaseTrack.m */; };
+		849A6D3718060B6C00ACE1B5 /* Bloks.m in Sources */ = {isa = PBXBuildFile; fileRef = 849A6D3618060B6C00ACE1B5 /* Bloks.m */; };
 		849D028D174FBD6200265372 /* SearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D028C174FBD6200265372 /* SearchTests.m */; };
 		849D0291174FCA1C00265372 /* Pagination.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D0290174FCA1C00265372 /* Pagination.m */; };
 		849EFA74175547F200F063BD /* QueryBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EFA73175547F200F063BD /* QueryBuilderTests.m */; };
@@ -114,6 +115,8 @@
 		844304E81714188A00EBCBA7 /* URLDataProviderAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLDataProviderAsync.m; sourceTree = "<group>"; };
 		84987602180216F700A01399 /* ReleaseTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseTrack.h; sourceTree = "<group>"; };
 		84987603180216F700A01399 /* ReleaseTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseTrack.m; sourceTree = "<group>"; };
+		849A6D3518060B6C00ACE1B5 /* Bloks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bloks.h; sourceTree = "<group>"; };
+		849A6D3618060B6C00ACE1B5 /* Bloks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bloks.m; sourceTree = "<group>"; };
 		849D028C174FBD6200265372 /* SearchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTests.m; sourceTree = "<group>"; };
 		849D028F174FCA1C00265372 /* Pagination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pagination.h; sourceTree = "<group>"; };
 		849D0290174FCA1C00265372 /* Pagination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pagination.m; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				84CDC36E1714589700EB31AF /* URLDataProviderSync.m */,
 				849EFA7517554A1B00F063BD /* QueryBuilder.h */,
 				849EFA7617554A1B00F063BD /* QueryBuilder.m */,
+				849A6D3518060B6C00ACE1B5 /* Bloks.h */,
+				849A6D3618060B6C00ACE1B5 /* Bloks.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				84A8F98317973F9A00768036 /* Label.m in Sources */,
 				84A8F98617973FAD00768036 /* LabelAPI.m in Sources */,
 				84AAC19917A06EE4003EC61E /* Artist.m in Sources */,
+				849A6D3718060B6C00ACE1B5 /* Bloks.m in Sources */,
 				84AAC19C17A06F24003EC61E /* ArtistAPI.m in Sources */,
 				1FB5A62A17A4553D006281C3 /* Release.m in Sources */,
 				1FB5A62D17A4554D006281C3 /* ReleaseAPI.m in Sources */,

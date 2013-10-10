@@ -24,37 +24,19 @@
     
     if ([responseCode statusCode] == 404)
     {
-        @throw [[NSException new] initWithName:@"QueryException" reason:@"Query is incorrect." userInfo:nil];
+        NSException *ex  =  [[NSException new] initWithName:@"QueryException" reason:@"Query is incorrect." userInfo:nil];
+        [ex raise];
+        return nil;
     }
     
-    NSDictionary *jsonDictionary = nil;
-    if(NSClassFromString(@"NSJSONSerialization"))
+    HandleJSONBlock block = ^(NSDictionary *jsonData)
     {
-        NSError *jsonError = nil;
-        id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&jsonError];
-        
-        if (jsonError)
-        {
-            @throw [[NSException new] initWithName:@"JSONParserException" reason:@"Can't parse JSON." userInfo:nil];
-        }
-        else
-        {
-            if ([object isKindOfClass:[NSDictionary class]])
-            {
-                jsonDictionary = object;
-                QueryResult *searchResults = [search GetSearchResults:jsonDictionary];
-                return searchResults;
-            }
-            else
-            {
-                @throw [[NSException new] initWithName:@"JSONParserException" reason:@"JSON data is incorrect." userInfo:nil];
-            }
-        }
-    }
-    else
-    {
-        @throw [[NSException new] initWithName:@"PlatformException" reason:@"Incorrect IOS version. Required 5.0 or later." userInfo:nil];
-    }
+        QueryResult *searchResults = [search GetSearchResults:jsonData];
+        return searchResults;
+    };
+    
+    return [Blocks handleJSON:jsonData withBlock:block];
+    
 }
 
 @end

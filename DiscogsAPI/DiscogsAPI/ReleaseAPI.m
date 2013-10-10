@@ -31,33 +31,12 @@ NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
         @throw [[NSException new] initWithName:@"QueryException" reason:@"Label url is incorrect." userInfo:nil];
     }
     
-    NSDictionary *jsonDictionary = nil;
-    if(NSClassFromString(@"NSJSONSerialization"))
+    HandleJSONBlock block = ^(NSDictionary *jsonData)
     {
-        NSError *jsonError = nil;
-        id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&jsonError];
-        
-        if (jsonError)
-        {
-            @throw [[NSException new] initWithName:@"JSONParserException" reason:@"Can't parse JSON." userInfo:nil];
-        }
-        else
-        {
-            if ([object isKindOfClass:[NSDictionary class]])
-            {
-                jsonDictionary = object;
-                return [Release GetRelease:jsonDictionary];
-            }
-            else
-            {
-                @throw [[NSException new] initWithName:@"JSONParserException" reason:@"JSON data is incorrect." userInfo:nil];
-            }
-        }
-    }
-    else
-    {
-        @throw [[NSException new] initWithName:@"PlatformException" reason:@"Incorrect IOS version. Required 5.0 or later." userInfo:nil];
-    }
+        return [Release GetRelease:jsonData];
+    };
+    
+    return [Blocks handleJSON:jsonData withBlock:block];
 }
 
 +(QueryResult *) GetReleasesByUrl:(NSString *) releasesUrl withPagination:(Pagination *) pagination
@@ -78,59 +57,37 @@ NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
         @throw [[NSException new] initWithName:@"QueryException" reason:@"Label url is incorrect." userInfo:nil];
     }
     
-    NSDictionary *jsonDictionary = nil;
-    if(NSClassFromString(@"NSJSONSerialization"))
+    HandleJSONBlock block = ^(NSDictionary *jsonData)
     {
-        NSError *jsonError = nil;
-        id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&jsonError];
+        NSArray * releases = [jsonData objectForKey:@"releases"];
         
-        if (jsonError)
+        QueryResult *queryResults = [QueryResult new];
+        NSDictionary *paginationD = [jsonData objectForKey:@"pagination"];
+        NSDictionary *urls =[paginationD objectForKey:@"urls"];
+        [queryResults setNextUrl:[urls objectForKey:@"next"]];
+        [queryResults setPrevUrl:[urls objectForKey:@"prev"]];
+        [queryResults setPerPage:[[paginationD objectForKey:@"per_page"] intValue]];
+        [queryResults setPage:[[paginationD objectForKey:@"page"] intValue]];
+        [queryResults setPages:[[paginationD objectForKey:@"pages"] intValue]];
+        
+        
+        NSMutableArray * releasesArray = [[NSMutableArray alloc] initWithCapacity:[releases count]];
+        for (NSDictionary * releaseD in releases)
         {
-            @throw [[NSException new] initWithName:@"JSONParserException" reason:@"Can't parse JSON." userInfo:nil];
-        }
-        else
-        {
-            if ([object isKindOfClass:[NSDictionary class]])
+            NSString * releaseUrl = [releaseD objectForKey:@"resource_url"];
+            Release * release = [ReleaseAPI GetReleaseByUrl:releaseUrl];
+            if (release != nil)
             {
-                jsonDictionary = object;
-                NSArray * releases = [jsonDictionary objectForKey:@"releases"];
-                
-                QueryResult *queryResults = [QueryResult new];
-                NSDictionary *paginationD = [jsonDictionary objectForKey:@"pagination"];
-                NSDictionary *urls =[paginationD objectForKey:@"urls"];
-                [queryResults setNextUrl:[urls objectForKey:@"next"]];
-                [queryResults setPrevUrl:[urls objectForKey:@"prev"]];
-                [queryResults setPerPage:[[paginationD objectForKey:@"per_page"] intValue]];
-                [queryResults setPage:[[paginationD objectForKey:@"page"] intValue]];
-                [queryResults setPages:[[paginationD objectForKey:@"pages"] intValue]];
-
-                
-                NSMutableArray * releasesArray = [[NSMutableArray alloc] initWithCapacity:[releases count]];
-                for (NSDictionary * releaseD in releases)
-                {
-                    NSString * releaseUrl = [releaseD objectForKey:@"resource_url"];
-                    Release * release = [ReleaseAPI GetReleaseByUrl:releaseUrl];
-                    if (release != nil)
-                    {
-                        [releasesArray addObject:release];
-                    }
-                }
-                
-                [queryResults setResults:releasesArray];
-                return queryResults;
-            }
-            else
-            {
-                @throw [[NSException new] initWithName:@"JSONParserException" reason:@"JSON data is incorrect." userInfo:nil];
+                [releasesArray addObject:release];
             }
         }
-    }
-    else
-    {
-        @throw [[NSException new] initWithName:@"PlatformException" reason:@"Incorrect IOS version. Required 5.0 or later." userInfo:nil];
-    }
+        
+        [queryResults setResults:releasesArray];
+        return queryResults;
 
-
+    };
+    
+    return [Blocks handleJSON:jsonData withBlock:block];
 }
 
 @end
