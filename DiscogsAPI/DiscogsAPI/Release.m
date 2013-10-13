@@ -29,7 +29,7 @@
     }
     release.genre = [[jsonData objectForKey:@"genres"] objectAtIndex:0];
     release.style = [[jsonData objectForKey:@"styles"] objectAtIndex:0];
-    release.imageUrl = [[[jsonData objectForKey:@"images"] objectAtIndex:0] objectForKey:@"uri150"];
+    release.imageUrl = [[[jsonData objectForKey:@"images"] objectAtIndex:0] objectForKey:@"uri"];
     release.labelName = [[[jsonData objectForKey:@"labels"] objectAtIndex:0] objectForKey:@"name"];
     if (release.labelName == nil)
     {
