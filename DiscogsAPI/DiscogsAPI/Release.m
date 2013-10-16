@@ -13,30 +13,35 @@
 
 +(Release *) GetRelease:(NSDictionary *)jsonData
 {
-    if (![self isNeededRelease:jsonData])
-    {
-        return nil;
-    }
-    
     Release *release = [Release new];
     
     release.identifier = (long)[jsonData objectForKey:@"id"];
     release.name = [jsonData objectForKey:@"title"];
+    release.releaseUrl = [jsonData objectForKey:@"uri"];
     release.year = [jsonData objectForKey:@"year"];
-    if (release.year == nil)
+    if (release.year == nil || release.year.length == 0)
     {
         release.year = @"unknown year";
     }
     release.genre = [[jsonData objectForKey:@"genres"] objectAtIndex:0];
+    if (release.genre == nil || release.genre.length == 0)
+    {
+        release.genre = @"unknown genre";
+    }
     release.style = [[jsonData objectForKey:@"styles"] objectAtIndex:0];
+    if (release.style == nil || release.style.length == 0)
+    {
+        release.style = @"unknown style";
+    }
     release.imageUrl = [[[jsonData objectForKey:@"images"] objectAtIndex:0] objectForKey:@"uri"];
+    release.smallImageUrl = [[[jsonData objectForKey:@"images"] objectAtIndex:0] objectForKey:@"uri150"];
     release.labelName = [[[jsonData objectForKey:@"labels"] objectAtIndex:0] objectForKey:@"name"];
-    if (release.labelName == nil)
+    if (release.labelName == nil || release.labelName.length == 0)
     {
         release.labelName = @"unknown label";
     }
     release.artistName = [[[jsonData objectForKey:@"artists"] objectAtIndex:0] objectForKey:@"name"];
-    if (release.artistName == nil)
+    if (release.artistName == nil || release.artistName.length == 0)
     {
         release.artistName = @"unknown artist";
     }
@@ -72,18 +77,6 @@
     release.tracks = releaseTracks;
     
     return release;
-}
-
-+(BOOL) isNeededRelease:(NSDictionary *) jsonData
-{
-    NSString * mainRelease = [jsonData objectForKey:@"main_release"];
-    
-    if (mainRelease != nil)
-    {
-        return YES;
-    }
-    
-    return YES;
 }
 
 @end

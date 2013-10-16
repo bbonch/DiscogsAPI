@@ -21,6 +21,8 @@
 @property NSString *genre;
 @property NSString *style;
 @property NSString *imageUrl;
+@property NSString *smallImageUrl;
+@property NSString *releaseUrl;
 
 +(Release *) GetRelease:(NSDictionary *)jsonData;
 
