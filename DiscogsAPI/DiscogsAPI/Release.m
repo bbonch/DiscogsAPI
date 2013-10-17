@@ -66,6 +66,10 @@
             {
                 releaseTrack.artist = [[artists objectAtIndex:0] objectForKey:@"name"];
             }
+            else
+            {
+                releaseTrack.artist = @"unknown artist";
+            }
         }
         else
         {
