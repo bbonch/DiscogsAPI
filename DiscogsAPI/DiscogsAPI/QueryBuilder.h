@@ -10,7 +10,7 @@
 
 @interface QueryBuilder : NSObject
 
-@property (readonly) NSString *query;
+@property (readonly) NSMutableString *query;
 
 -(void) initWithQuery:(NSString *)initQuery;
 -(void) addPair:(NSString *)key value:(NSString *)value;

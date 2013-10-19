@@ -10,7 +10,7 @@
 
 @interface QueryBuilder()
 
-@property (readwrite) NSString *query;
+@property (readwrite) NSMutableString *query;
 
 @end
 
@@ -18,7 +18,7 @@
 
 -(void) initWithQuery:(NSString *)initQuery
 {
-    self.query = initQuery;
+    self.query = [[NSMutableString alloc] initWithString:initQuery];
 }
 
 -(void) addPair:(NSString *)key value:(NSString *)value
@@ -44,11 +44,11 @@
     
     if (positionOfLastCharacter == rangeOfQuestion.location)
     {
-        self.query = [self.query stringByAppendingFormat:@"%@=%@",key,value];
+        [self.query appendFormat:@"%@=%@",key,value];
     }
     else
     {
-        self.query = [self.query stringByAppendingFormat:@"%@%@=%@",@"&",key,value];
+        [self.query appendFormat:@"%@%@=%@",@"&",key,value];
     }
 }
 
