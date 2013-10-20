@@ -19,7 +19,7 @@
     release.name = [jsonData objectForKey:@"title"];
     release.releaseUrl = [jsonData objectForKey:@"uri"];
     release.year = [NSString stringWithFormat:@"%@",[jsonData objectForKey:@"year"]];
-    if (release.year == nil || release.year.length == 0)
+    if (release.year == nil || release.year.length == 0 || [release.year isEqualToString:@"0"])
     {
         release.year = @"unknown year";
     }
