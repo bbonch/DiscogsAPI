@@ -19,6 +19,14 @@
     artist.profile = [jsonData objectForKey:@"profile"];
     artist.releasesUrl = [jsonData objectForKey:@"releases_url"];
     
+    NSArray *imageArray = [jsonData objectForKey:@"images"];
+    artist.images = [[NSMutableArray alloc] initWithCapacity:imageArray.count];
+    
+    for (NSDictionary *image in imageArray)
+    {
+        [artist.images addObject:[image objectForKey:@"uri150"]];
+    }
+    
     return artist;
 }
 

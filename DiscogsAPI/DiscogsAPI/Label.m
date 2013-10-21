@@ -19,6 +19,14 @@
     label.profile = [jsonData objectForKey:@"profile"];
     label.releasesUrl = [jsonData objectForKey:@"releases_url"];
     
+    NSArray *imageArray = [jsonData objectForKey:@"images"];
+    label.images = [[NSMutableArray alloc] initWithCapacity:imageArray.count];
+    
+    for (NSDictionary *image in imageArray)
+    {
+        [label.images addObject:[image objectForKey:@"uri150"]];
+    }
+    
     return label;
 }
 

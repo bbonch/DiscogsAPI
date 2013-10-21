@@ -14,6 +14,7 @@
 @property NSString *name;
 @property NSString *profile;
 @property NSString *releasesUrl;
+@property NSMutableArray *images;
 
 +(Artist *) GetArtist:(NSDictionary *) jsonData;
 
