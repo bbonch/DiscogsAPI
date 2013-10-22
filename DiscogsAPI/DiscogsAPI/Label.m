@@ -24,7 +24,7 @@
     
     for (NSDictionary *image in imageArray)
     {
-        [label.images addObject:[image objectForKey:@"uri150"]];
+        [label.images addObject:[image objectForKey:@"uri"]];
     }
     
     return label;
