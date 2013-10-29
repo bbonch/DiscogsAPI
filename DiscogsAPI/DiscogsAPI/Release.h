@@ -13,6 +13,7 @@
 @property long identifier;
 @property NSString *name;
 @property NSMutableArray *tracks;
+@property NSMutableArray *formats;
 @property NSString *year;
 @property NSString *label;
 @property NSString *artist;
@@ -21,6 +22,7 @@
 @property NSString *genre;
 @property NSString *style;
 @property NSString *imageUrl;
+@property NSString *country;
 
 +(Release *) GetRelease:(NSDictionary *)jsonData;
 
