@@ -18,33 +18,53 @@
     release.identifier = (long)[jsonData objectForKey:@"id"];
     release.name = [jsonData objectForKey:@"title"];
     release.releaseUrl = [jsonData objectForKey:@"uri"];
+    release.imageUrl = [[[jsonData objectForKey:@"images"] objectAtIndex:0] objectForKey:@"uri"];
+    release.smallImageUrl = [[[jsonData objectForKey:@"images"] objectAtIndex:0] objectForKey:@"uri150"];
+    
     release.year = [NSString stringWithFormat:@"%@",[jsonData objectForKey:@"year"]];
     if (release.year == nil || release.year.length == 0 || [release.year isEqualToString:@"0"])
     {
         release.year = @"unknown year";
     }
+    
     release.genre = [[jsonData objectForKey:@"genres"] objectAtIndex:0];
     if (release.genre == nil || release.genre.length == 0)
     {
         release.genre = @"unknown genre";
     }
+    
     release.style = [[jsonData objectForKey:@"styles"] objectAtIndex:0];
     if (release.style == nil || release.style.length == 0)
     {
         release.style = @"unknown style";
     }
-    release.imageUrl = [[[jsonData objectForKey:@"images"] objectAtIndex:0] objectForKey:@"uri"];
-    release.smallImageUrl = [[[jsonData objectForKey:@"images"] objectAtIndex:0] objectForKey:@"uri150"];
+    
     release.labelName = [[[jsonData objectForKey:@"labels"] objectAtIndex:0] objectForKey:@"name"];
     if (release.labelName == nil || release.labelName.length == 0)
     {
         release.labelName = @"unknown label";
     }
+    
     release.artistName = [[[jsonData objectForKey:@"artists"] objectAtIndex:0] objectForKey:@"name"];
     if (release.artistName == nil || release.artistName.length == 0)
     {
         release.artistName = @"unknown artist";
     }
+    
+    release.country = [jsonData objectForKey:@"country"];
+    if (release.country == nil)
+    {
+        release.country = @"unknown country";
+    }
+    
+    release.tracks = [self getTracks:jsonData :release];
+    release.formats = [self getTracks:jsonData];
+    
+    return release;
+}
+
++(NSMutableArray *) getTracks:(NSDictionary *)jsonData :(Release *) release
+{
     NSArray *tracks = [jsonData objectForKey:@"tracklist"];
     
     if (tracks == nil)
@@ -78,9 +98,39 @@
         
         [releaseTracks addObject:releaseTrack];
     }
-    release.tracks = releaseTracks;
     
-    return release;
+    return releaseTracks;
+}
+
++(NSMutableArray *) getTracks:(NSDictionary *) jsonData
+{
+    NSArray *formats = [jsonData objectForKey:@"formats"];
+    
+    if (formats == nil)
+    {
+        return nil;
+    }
+    
+    NSMutableArray *formatDescriptions = [[NSMutableArray alloc] initWithCapacity:10];
+    for (NSDictionary *format in formats)
+    {
+        NSArray *descriptions = [format objectForKey:@"descriptions"];
+        if (descriptions != nil)
+        {
+            for (NSString *description in descriptions)
+            {
+                [formatDescriptions addObject:description];
+            }
+        }
+        
+        NSString *text = [format objectForKey:@"text"];
+        if (text != nil)
+        {
+            [formatDescriptions addObject:text];
+        }
+    }
+    
+    return formatDescriptions;
 }
 
 @end
