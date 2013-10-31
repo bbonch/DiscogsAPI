@@ -28,7 +28,11 @@ NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
     
     if ([responseCode statusCode] == 404)
     {
-        @throw [[NSException new] initWithName:@"QueryException" reason:@"Label url is incorrect." userInfo:nil];
+        NSString *errorString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",errorString);
+        
+        NSException *ex =  [[NSException new] initWithName:@"QueryException" reason:@"Release url is incorrect." userInfo:nil];
+        [ex raise];
     }
     
     HandleJSONBlock block = ^(NSDictionary *jsonData)
@@ -54,7 +58,11 @@ NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
     
     if ([responseCode statusCode] == 404)
     {
-        @throw [[NSException new] initWithName:@"QueryException" reason:@"Label url is incorrect." userInfo:nil];
+        NSString *errorString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",errorString);
+        
+        NSException *ex =  [[NSException new] initWithName:@"QueryException" reason:@"Release url is incorrect." userInfo:nil];
+        [ex raise];
     }
     
     HandleJSONBlock block = ^(NSDictionary *jsonData)

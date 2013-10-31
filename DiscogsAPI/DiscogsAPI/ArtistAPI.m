@@ -28,7 +28,9 @@ NSString * const BaseArtistUrl = @"http://api.discogs.com/artists/";
     
     if ([responseCode statusCode] == 404)
     {
-        @throw [[NSException new] initWithName:@"QueryException" reason:@"Artist url is incorrect." userInfo:nil];
+        NSException *ex = [[NSException new] initWithName:@"QueryException" reason:@"Artist url is incorrect." userInfo:nil];
+        [ex raise];
+        return nil;
     }
     
     HandleJSONBlock block = ^(NSDictionary *jsonData)
@@ -57,7 +59,9 @@ NSString * const BaseArtistUrl = @"http://api.discogs.com/artists/";
     
     if ([responseCode statusCode] == 404)
     {
-        @throw [[NSException new] initWithName:@"QueryException" reason:@"Artist url is incorrect." userInfo:nil];
+        NSException *ex = [[NSException new] initWithName:@"QueryException" reason:@"Artist url is incorrect." userInfo:nil];
+        [ex raise];
+        return nil;
     }
     
     HandleJSONBlock block = ^(NSDictionary *jsonData)
