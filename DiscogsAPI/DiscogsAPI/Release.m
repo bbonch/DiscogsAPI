@@ -34,7 +34,7 @@
     }
     else
     {
-        genres = [[NSMutableArray alloc] initWithCapacity:genres.count];
+        release.genres = [[NSMutableArray alloc] initWithCapacity:genres.count];
         for (NSString *genre in genres)
         {
             [release.genres addObject:genre];
@@ -48,7 +48,7 @@
     }
     else
     {
-        styles = [[NSMutableArray alloc] initWithCapacity:styles.count];
+        release.styles = [[NSMutableArray alloc] initWithCapacity:styles.count];
         for (NSString *style in styles)
         {
             [release.styles addObject:style];
