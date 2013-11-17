@@ -27,16 +27,32 @@
         release.year = @"unknown year";
     }
     
-    release.genre = [[jsonData objectForKey:@"genres"] objectAtIndex:0];
-    if (release.genre == nil || release.genre.length == 0)
+    NSArray *genres = [jsonData objectForKey:@"genres"];
+    if (genres == nil || genres.count == 0)
     {
-        release.genre = @"unknown genre";
+        release.genres = [[NSMutableArray alloc] initWithArray:@[@"unknown genre"]];
+    }
+    else
+    {
+        genres = [[NSMutableArray alloc] initWithCapacity:genres.count];
+        for (NSString *genre in genres)
+        {
+            [release.genres addObject:genre];
+        }
     }
     
-    release.style = [[jsonData objectForKey:@"styles"] objectAtIndex:0];
-    if (release.style == nil || release.style.length == 0)
+    NSArray *styles = [jsonData objectForKey:@"styles"];
+    if (styles == nil || styles.count == 0)
     {
-        release.style = @"unknown style";
+        release.styles = [[NSMutableArray alloc] initWithArray:@[@"unknown style"]];
+    }
+    else
+    {
+        styles = [[NSMutableArray alloc] initWithCapacity:styles.count];
+        for (NSString *style in styles)
+        {
+            [release.styles addObject:style];
+        }
     }
     
     release.labelName = [[[jsonData objectForKey:@"labels"] objectAtIndex:0] objectForKey:@"name"];

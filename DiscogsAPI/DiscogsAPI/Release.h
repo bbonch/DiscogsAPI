@@ -19,8 +19,8 @@
 @property NSString *artist;
 @property NSString *labelName;
 @property NSString *artistName;
-@property NSString *genre;
-@property NSString *style;
+@property NSMutableArray *genres;
+@property NSMutableArray *styles;
 @property NSString *imageUrl;
 @property NSString *smallImageUrl;
 @property NSString *releaseUrl;
