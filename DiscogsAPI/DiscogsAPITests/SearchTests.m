@@ -38,8 +38,8 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
     Search *artistSearch = [ArtistSearch new];
     
     //Act
-    [artistSearch GetSearchQuery];
-    NSString *result = [[artistSearch queryBuilder] query];
+    [artistSearch buildSearchQuery];
+    NSString *result = [artistSearch getSearchQuery];
     
     //Assert
     STAssertEqualObjects(testSearchQuery, result, @"");
@@ -49,20 +49,20 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
 {
     //Arrange
     Search *artistSearch = [ArtistSearch new];
-    [artistSearch GetSearchQuery];
-    QueryBuilder *queryBuilder = [artistSearch queryBuilder];
-    [queryBuilder addPair:@"per_page" value:[NSString stringWithFormat:@"%i",11]];
-    [queryBuilder addPair:@"page" value:[NSString stringWithFormat:@"%i",1]];
+    [artistSearch buildSearchQuery];
+    [artistSearch setSearchParameter:@"per_page" parameterString:[NSString stringWithFormat:@"%i",11]];
+    [artistSearch setSearchParameter:@"page" parameterString:[NSString stringWithFormat:@"%i",1]];
+    
     id<DataProviderDelegate> provider = [URLDataProviderSync new];
     
     //Act
-    NSString *searchQuery = [queryBuilder query];
+    NSString *searchQuery = [artistSearch getSearchQuery];
     [provider getDataWithString:searchQuery];
     NSMutableData *jsonData = [provider receivedData];
     id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     NSDictionary *jsonDictionary = object;
     NSArray *results = [jsonDictionary objectForKey:@"results"];
-    SearchResult *searchResult = [artistSearch GetSearchResult:[results objectAtIndex:0]];
+    SearchResult *searchResult = [artistSearch getSearchResult:[results objectAtIndex:0]];
     
     //Assert
     STAssertNotNil(searchResult.title, @"");
@@ -72,23 +72,23 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
 {
     //Arrange
     Search *artistSearch = [ArtistSearch new];
-    [artistSearch GetSearchQuery];
-    QueryBuilder *queryBuilder = [artistSearch queryBuilder];
-    [queryBuilder addPair:@"per_page" value:[NSString stringWithFormat:@"%i",11]];
-    [queryBuilder addPair:@"page" value:[NSString stringWithFormat:@"%i",1]];
+    [artistSearch buildSearchQuery];
+    [artistSearch setSearchParameter:@"per_page" parameterString:[NSString stringWithFormat:@"%i",11]];
+    [artistSearch setSearchParameter:@"page" parameterString:[NSString stringWithFormat:@"%i",1]];
+    
     id<DataProviderDelegate> provider = [URLDataProviderAsync new];
     [provider setObserver:self];
     [provider setDataLoaded:@selector(dataLoaded)];
     
     //Act
-    NSString *searchQuery = [queryBuilder query];
+    NSString *searchQuery = [artistSearch getSearchQuery];
     [provider getDataWithString:searchQuery];
     [self waitForTimeoutInt:1];
     NSMutableData *jsonData = [provider receivedData];
     id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     NSDictionary *jsonDictionary = object;
     NSArray *results = [jsonDictionary objectForKey:@"results"];
-    SearchResult *searchResult = [artistSearch GetSearchResult:[results objectAtIndex:0]];
+    SearchResult *searchResult = [artistSearch getSearchResult:[results objectAtIndex:0]];
     
     //Assert
     STAssertNotNil(searchResult.title, @"");

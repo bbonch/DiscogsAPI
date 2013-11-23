@@ -22,7 +22,7 @@
     long labelId = 234;
     
     //Act
-    Label *label = [LabelAPI GetLabelById:labelId];
+    Label *label = [LabelAPI getLabelById:labelId];
     
     //Assert
     STAssertEqualObjects(label.name, @"Chain Reaction", @"Label's name doesn't mutch!");
@@ -34,7 +34,7 @@
     NSString *url = @"http://api.discogs.com/labels/234";
     
     //Act
-    Label *label = [LabelAPI GetLabelByUrl:url];
+    Label *label = [LabelAPI getLabelByUrl:url];
     
     //Assert
     STAssertEqualObjects(label.name, @"Chain Reaction", @"Label's name doesn't mutch!");
@@ -46,7 +46,7 @@
     NSString *url = @"http://api.discogs.com/ladwebels/234";
     
     //Assert
-    STAssertNil([LabelAPI GetLabelByUrl:url], @"Url is correct!");
+    STAssertNil([LabelAPI getLabelByUrl:url], @"Url is correct!");
 }
 
 -(void) testGetLabelByIncorrectId
@@ -55,7 +55,7 @@
     long labelId = -1;
     
     //Assert
-    STAssertNil([LabelAPI GetLabelById:labelId], @"Id is correct!");
+    STAssertNil([LabelAPI getLabelById:labelId], @"Id is correct!");
 }
 
 -(void) testGetLabelReleases
@@ -64,7 +64,7 @@
     NSString *releasesUrl = @"http://api.discogs.com/labels/994/releases";
     
     //Act
-    NSMutableArray *releasesIds = [LabelAPI GetReleasesForLabel:releasesUrl withPagination:nil];
+    NSMutableArray *releasesIds = [LabelAPI getReleasesForLabel:releasesUrl withPagination:nil];
     NSUInteger count = 27;
     //Assert
     STAssertEquals([releasesIds count], count, @"GetReleasesForLabel doesn't work!");

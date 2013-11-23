@@ -11,6 +11,6 @@
 
 @interface SearchAPI : NSObject
 
-+(QueryResult *) GetSearchResults:(Search *) search withPagination:(Pagination *) pagination;
++(QueryResult *) getSearchResults:(Search *) search withPagination:(Pagination *) pagination;
 
 @end

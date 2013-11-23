@@ -22,7 +22,7 @@
     NSString *url = @"http://api.discogs.com/artists/234";
     
     //Act
-    Artist *artist = [ArtistAPI GetArtistByUrl:url];
+    Artist *artist = [ArtistAPI getArtistByUrl:url];
     
     //Assert
     STAssertEqualObjects(artist.name, @"Beanfield", @"Artist name doesn't mutch!");
@@ -34,7 +34,7 @@
     NSString *url = @"http://api.discogs.com/artistsdef/234";
     
     //Assert
-    STAssertNil([ArtistAPI GetArtistByUrl:url], @"Url is correct!");}
+    STAssertNil([ArtistAPI getArtistByUrl:url], @"Url is correct!");}
 
 -(void) testGetArtistReleases
 {
@@ -42,7 +42,7 @@
     NSString *releasesUrl = @"http://api.discogs.com/artists/994/releases";
     
     //Act
-    NSMutableArray *releasesIds = [ArtistAPI GetReleasesForArtist:releasesUrl withPagination:nil];
+    NSMutableArray *releasesIds = [ArtistAPI getReleasesForArtist:releasesUrl withPagination:nil];
     NSUInteger count = 22;
     //Assert
     STAssertEquals([releasesIds count], count, @"GetReleasesForArtist doesn't work!");}

@@ -14,13 +14,13 @@
 
 NSString * const BaseLabelUrl = @"http://api.discogs.com/labels/";
 
-+(Label *) GetLabelById:(long) labelId
++(Label *) getLabelById:(long) labelId
 {
     
-    return [self GetLabelByUrl:[BaseLabelUrl stringByAppendingFormat:@"%li",labelId]];
+    return [self getLabelByUrl:[BaseLabelUrl stringByAppendingFormat:@"%li",labelId]];
 }
 
-+(Label *) GetLabelByUrl:(NSString *) labelUrl
++(Label *) getLabelByUrl:(NSString *) labelUrl
 {
     id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
     [dataProvider getDataWithString:labelUrl];
@@ -36,14 +36,14 @@ NSString * const BaseLabelUrl = @"http://api.discogs.com/labels/";
     
     HandleJSONBlock block = ^(NSDictionary *jsonData)
     {
-        return [Label GetLabel:jsonData];
+        return [Label getLabel:jsonData];
     };
 
     
     return [Blocks handleJSON:jsonData withBlock:block];
 }
 
-+(NSMutableArray *) GetReleasesForLabel:(NSString *) releasesUrl withPagination:(Pagination *)pagination
++(NSMutableArray *) getReleasesForLabel:(NSString *) releasesUrl withPagination:(Pagination *)pagination
 {
     NSMutableString *url = [[NSMutableString alloc] initWithString:releasesUrl];
     [url appendString:@"?"];

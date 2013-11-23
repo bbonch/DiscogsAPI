@@ -12,8 +12,8 @@
 
 @interface ArtistAPI : NSObject
 
-+(Artist *) GetArtistById:(long) artistId;
-+(Artist *) GetArtistByUrl:(NSString *) artistUrl;
-+(NSMutableArray *) GetReleasesForArtist:(NSString *) releasesUrl withPagination:(Pagination *) pagination;
++(Artist *) getArtistById:(long) artistId;
++(Artist *) getArtistByUrl:(NSString *) artistUrl;
++(NSMutableArray *) getReleasesForArtist:(NSString *) releasesUrl withPagination:(Pagination *) pagination;
 
 @end

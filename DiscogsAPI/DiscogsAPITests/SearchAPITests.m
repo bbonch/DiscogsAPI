@@ -30,7 +30,7 @@
     search.catno = @"34";
     
     //Act
-    QueryResult *results = [SearchAPI GetSearchResults:search withPagination:pagination];
+    QueryResult *results = [SearchAPI getSearchResults:search withPagination:pagination];
     NSString *nextUrl = results.nextUrl;
     NSArray *searchResults = results.results;
     ReleaseSearchResult *searchResult = [searchResults objectAtIndex:0];

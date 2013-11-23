@@ -11,7 +11,7 @@
 
 @implementation Release
 
-+(Release *) GetRelease:(NSDictionary *)jsonData
++(Release *) getRelease:(NSDictionary *)jsonData
 {
     Release *release = [Release new];
     
@@ -74,7 +74,7 @@
     }
     
     release.tracks = [self getTracks:jsonData :release];
-    release.formats = [self getTracks:jsonData];
+    release.formats = [self getFormats:jsonData];
     
     return release;
 }
@@ -118,7 +118,7 @@
     return releaseTracks;
 }
 
-+(NSMutableArray *) getTracks:(NSDictionary *) jsonData
++(NSMutableArray *) getFormats:(NSDictionary *) jsonData
 {
     NSArray *formats = [jsonData objectForKey:@"formats"];
     

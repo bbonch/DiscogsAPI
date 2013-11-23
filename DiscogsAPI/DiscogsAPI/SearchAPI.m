@@ -11,12 +11,13 @@
 
 @implementation SearchAPI
 
-+(QueryResult *) GetSearchResults:(Search *) search withPagination:(Pagination *)pagination
++(QueryResult *) getSearchResults:(Search *) search withPagination:(Pagination *)pagination
 {
-    [search GetSearchQuery];
-    [[search queryBuilder] addPair:@"per_page" value:[NSString stringWithFormat:@"%i",pagination.perPage]];
-    [[search queryBuilder] addPair:@"page" value:[NSString stringWithFormat:@"%i",pagination.page]];
-    NSString *searchQuery = [[search queryBuilder] query];
+    [search buildSearchQuery];
+    [search setSearchParameter:@"per_page" parameterString:[NSString stringWithFormat:@"%i",pagination.perPage]];
+    [search setSearchParameter:@"page" parameterString:[NSString stringWithFormat:@"%i",pagination.page]];
+    
+    NSString *searchQuery = [search getSearchQuery];
     id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
     [dataProvider getDataWithString:searchQuery];
     NSMutableData *jsonData = [dataProvider receivedData];
@@ -31,7 +32,7 @@
     
     HandleJSONBlock block = ^(NSDictionary *jsonData)
     {
-        QueryResult *searchResults = [search GetSearchResults:jsonData];
+        QueryResult *searchResults = [search getSearchResults:jsonData];
         return searchResults;
     };
     

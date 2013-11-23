@@ -10,7 +10,7 @@
 
 @implementation Label
 
-+(Label *) GetLabel:(NSDictionary *) jsonData
++(Label *) getLabel:(NSDictionary *) jsonData
 {
     Label *label = [Label new];
     

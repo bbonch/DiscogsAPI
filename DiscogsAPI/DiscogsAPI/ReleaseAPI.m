@@ -14,12 +14,12 @@
 
 NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
 
-+(Release *) GetReleaseById:(long) releaseId
++(Release *) getReleaseById:(long) releaseId
 {
-    return [self GetReleaseByUrl:[BaseReleaseUrl stringByAppendingFormat:@"%li",releaseId]];
+    return [self getReleaseByUrl:[BaseReleaseUrl stringByAppendingFormat:@"%li",releaseId]];
 }
 
-+(Release *) GetReleaseByUrl:(NSString *) releaseUrl
++(Release *) getReleaseByUrl:(NSString *) releaseUrl
 {
     id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
     [dataProvider getDataWithString:releaseUrl];
@@ -37,13 +37,13 @@ NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
     
     HandleJSONBlock block = ^(NSDictionary *jsonData)
     {
-        return [Release GetRelease:jsonData];
+        return [Release getRelease:jsonData];
     };
     
     return [Blocks handleJSON:jsonData withBlock:block];
 }
 
-+(QueryResult *) GetReleasesByUrl:(NSString *) releasesUrl withPagination:(Pagination *) pagination
++(QueryResult *) getReleasesByUrl:(NSString *) releasesUrl withPagination:(Pagination *) pagination
 {
     QueryBuilder * queryBuilder = [[QueryBuilder alloc] initWithQuery:releasesUrl];
     [queryBuilder addPair:@"per_page" value:[NSString stringWithFormat:@"%i",pagination.perPage]];
@@ -82,7 +82,7 @@ NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
         for (NSDictionary * releaseD in releases)
         {
             NSString * releaseUrl = [releaseD objectForKey:@"resource_url"];
-            Release * release = [ReleaseAPI GetReleaseByUrl:releaseUrl];
+            Release * release = [self getReleaseByUrl:releaseUrl];
             if (release != nil)
             {
                 [releasesArray addObject:release];

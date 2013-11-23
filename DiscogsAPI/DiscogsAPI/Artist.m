@@ -10,7 +10,7 @@
 
 @implementation Artist
 
-+(Artist *) GetArtist:(NSDictionary *) jsonData
++(Artist *) getArtist:(NSDictionary *) jsonData
 {
     Artist *artist = [Artist new];
     

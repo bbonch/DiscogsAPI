@@ -22,7 +22,7 @@
     long releaseId = 234;
     
     //Act
-    Release *release = [ReleaseAPI GetReleaseById:releaseId];
+    Release *release = [ReleaseAPI getReleaseById:releaseId];
     
     //Assert
     STAssertEqualObjects(release.name, @"Cabin Fever / Reaction Time", @"Release's name doesn't mutch!");
@@ -34,7 +34,7 @@
     NSString *url = @"http://api.discogs.com/releases/234";
     
     //Act
-    Release *release = [ReleaseAPI GetReleaseByUrl:url];
+    Release *release = [ReleaseAPI getReleaseByUrl:url];
     
     //Assert
     STAssertEqualObjects(release.name, @"Cabin Fever / Reaction Time", @"Release's name doesn't mutch!");

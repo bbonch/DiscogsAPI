@@ -34,9 +34,11 @@
 @property NSString *submitter;
 @property NSString *contributor;
 
--(void) GetSearchQuery;
--(QueryResult *) GetSearchResults:(NSDictionary *)jsonData;
--(SearchResult *) GetSearchResult:(NSDictionary *)jsonData;
--(QueryBuilder *) queryBuilder;
+-(void) buildSearchQuery;
+-(NSString *) getSearchQuery;
+-(QueryResult *) getSearchResults:(NSDictionary *)jsonData;
+-(SearchResult *) getSearchResult:(NSDictionary *)jsonData;
+- (void) setSearchParameter:(NSString *) string parameterString:(NSString *) value;
+- (void) setSearchParameter:(NSString *) string parameterInt:(int) value;
 
 @end

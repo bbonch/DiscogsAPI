@@ -14,12 +14,12 @@
 
 NSString * const BaseArtistUrl = @"http://api.discogs.com/artists/";
 
-+(Artist *) GetArtistById:(long) artistId
++(Artist *) getArtistById:(long) artistId
 {
-    return [self GetArtistByUrl:[BaseArtistUrl stringByAppendingFormat:@"%li",artistId]];
+    return [self getArtistByUrl:[BaseArtistUrl stringByAppendingFormat:@"%li",artistId]];
 }
 
-+(Artist *) GetArtistByUrl:(NSString *) artistUrl
++(Artist *) getArtistByUrl:(NSString *) artistUrl
 {
     id<DataProviderDelegate> dataProvider = [URLDataProviderSync new];
     [dataProvider getDataWithString:artistUrl];
@@ -35,13 +35,13 @@ NSString * const BaseArtistUrl = @"http://api.discogs.com/artists/";
     
     HandleJSONBlock block = ^(NSDictionary *jsonData)
     {
-         return [Artist GetArtist:jsonData];
+         return [Artist getArtist:jsonData];
     };
     
     return [Blocks handleJSON:jsonData withBlock:block];
 }
 
-+(NSMutableArray *) GetReleasesForArtist:(NSString *) releasesUrl withPagination:(Pagination *) pagination
++(NSMutableArray *) getReleasesForArtist:(NSString *) releasesUrl withPagination:(Pagination *) pagination
 {
     NSMutableString *url = [[NSMutableString alloc] initWithString:releasesUrl];
     [url appendString:@"?"];

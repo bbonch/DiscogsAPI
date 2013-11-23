@@ -12,7 +12,7 @@
 
 NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
 
-- (void)SetSearchParameter:(NSString *) string parameterInt:(int) value
+- (void)setSearchParameter:(NSString *) string parameterInt:(int) value
 {
     if (value)
     {
@@ -20,7 +20,7 @@ NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
     }
 }
 
-- (void)SetSearchParameter:(NSString *) string parameterString:(NSString *) value
+- (void)setSearchParameter:(NSString *) string parameterString:(NSString *) value
 {
     if (value)
     {
@@ -28,44 +28,49 @@ NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
     }
 }
 
--(void) GetSearchQuery
+-(NSString *) getSearchQuery
 {
-    [self SetSearchParameter:@"q" parameterString:self.q];
-    
-    [self SetSearchParameter:@"title" parameterString:self.title];
-    
-    [self SetSearchParameter:@"release_title" parameterString:self.releaseTitle];
-    
-    [self SetSearchParameter:@"credit" parameterString:self.credit];
-    
-    [self SetSearchParameter:@"artist" parameterString:self.artist];
-    
-    [self SetSearchParameter:@"anv" parameterString:self.anv];
-    
-    [self SetSearchParameter:@"label" parameterString:self.label];
-    
-    [self SetSearchParameter:@"genre" parameterString:self.genre];
-    
-    [self SetSearchParameter:@"style" parameterString:self.style];
-    
-    [self SetSearchParameter:@"country" parameterString:self.country];
-    
-    [self SetSearchParameter:@"year" parameterString:self.year];
-    
-    [self SetSearchParameter:@"format" parameterString:self.format];
-    
-    [self SetSearchParameter:@"catno" parameterString:self.catno];
-    
-    [self SetSearchParameter:@"barcode" parameterString:self.barcode];
-    
-    [self SetSearchParameter:@"track" parameterString:self.track];
-    
-    [self SetSearchParameter:@"submitter" parameterString:self.submitter];
-    
-    [self SetSearchParameter:@"contributor" parameterString:self.contributor];
+    return [queryBuilder query];
 }
 
--(QueryResult *) GetSearchResults:(NSDictionary *)jsonData
+-(void) buildSearchQuery
+{
+    [self setSearchParameter:@"q" parameterString:self.q];
+    
+    [self setSearchParameter:@"title" parameterString:self.title];
+    
+    [self setSearchParameter:@"release_title" parameterString:self.releaseTitle];
+    
+    [self setSearchParameter:@"credit" parameterString:self.credit];
+    
+    [self setSearchParameter:@"artist" parameterString:self.artist];
+    
+    [self setSearchParameter:@"anv" parameterString:self.anv];
+    
+    [self setSearchParameter:@"label" parameterString:self.label];
+    
+    [self setSearchParameter:@"genre" parameterString:self.genre];
+    
+    [self setSearchParameter:@"style" parameterString:self.style];
+    
+    [self setSearchParameter:@"country" parameterString:self.country];
+    
+    [self setSearchParameter:@"year" parameterString:self.year];
+    
+    [self setSearchParameter:@"format" parameterString:self.format];
+    
+    [self setSearchParameter:@"catno" parameterString:self.catno];
+    
+    [self setSearchParameter:@"barcode" parameterString:self.barcode];
+    
+    [self setSearchParameter:@"track" parameterString:self.track];
+    
+    [self setSearchParameter:@"submitter" parameterString:self.submitter];
+    
+    [self setSearchParameter:@"contributor" parameterString:self.contributor];
+}
+
+-(QueryResult *) getSearchResults:(NSDictionary *)jsonData
 {
     if (jsonData == nil)
     {
@@ -85,13 +90,13 @@ NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
     [queryResults setResults:[NSMutableArray new]];
     for (NSDictionary *result in results)
     {
-        [[queryResults results] addObject:[self GetSearchResult:result]];
+        [[queryResults results] addObject:[self getSearchResult:result]];
     }
     
     return queryResults;
 }
 
--(SearchResult *) GetSearchResult:(NSDictionary *)jsonData
+-(SearchResult *) getSearchResult:(NSDictionary *)jsonData
 {
     SearchResult * sr = [SearchResult new];
     sr.identifier = (int)[jsonData objectForKey:@"id"];

@@ -16,6 +16,6 @@
 @property NSString *releasesUrl;
 @property NSMutableArray *images;
 
-+(Artist *) GetArtist:(NSDictionary *) jsonData;
++(Artist *) getArtist:(NSDictionary *) jsonData;
 
 @end

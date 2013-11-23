@@ -16,6 +16,6 @@
 @property NSString *releasesUrl;
 @property NSMutableArray *images;
 
-+(Label *) GetLabel:(NSDictionary *) jsonData;
++(Label *) getLabel:(NSDictionary *) jsonData;
 
 @end

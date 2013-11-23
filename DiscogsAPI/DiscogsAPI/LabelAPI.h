@@ -12,8 +12,8 @@
 
 @interface LabelAPI : NSObject
 
-+(Label *) GetLabelById:(long) labelId;
-+(Label *) GetLabelByUrl:(NSString *) labelUrl;
-+(NSMutableArray *) GetReleasesForLabel:(NSString *) releasesUrl withPagination:(Pagination *)pagination;
++(Label *) getLabelById:(long) labelId;
++(Label *) getLabelByUrl:(NSString *) labelUrl;
++(NSMutableArray *) getReleasesForLabel:(NSString *) releasesUrl withPagination:(Pagination *)pagination;
 
 @end

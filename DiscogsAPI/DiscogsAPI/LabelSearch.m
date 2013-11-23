@@ -11,13 +11,14 @@
 
 @implementation LabelSearch
 
--(void) GetSearchQuery
+-(void) buildSearchQuery
 {
-    [super GetSearchQuery];
-    [self.queryBuilder addPair:@"type" value:@"label"];
+    [super buildSearchQuery];
+    
+    [self setSearchParameter:@"type" parameterString:@"label"];
 }
 
--(SearchResult *) GetSearchResult:(NSDictionary *)jsonData
+-(SearchResult *) getSearchResult:(NSDictionary *)jsonData
 {
     LabelSearchResult *sr = [LabelSearchResult new];
     sr.identifier = (int)[jsonData objectForKey:@"id"];

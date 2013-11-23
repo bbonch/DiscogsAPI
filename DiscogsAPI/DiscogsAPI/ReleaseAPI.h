@@ -12,8 +12,8 @@
 
 @interface ReleaseAPI : NSObject
 
-+(Release *) GetReleaseById:(long) releaseId;
-+(Release *) GetReleaseByUrl:(NSString *) releaseUrl;
-+(QueryResult *) GetReleasesByUrl:(NSString *) releasesUrl withPagination:(Pagination *) pagination;
++(Release *) getReleaseById:(long) releaseId;
++(Release *) getReleaseByUrl:(NSString *) releaseUrl;
++(QueryResult *) getReleasesByUrl:(NSString *) releasesUrl withPagination:(Pagination *) pagination;
 
 @end

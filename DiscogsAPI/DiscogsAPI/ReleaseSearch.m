@@ -11,13 +11,14 @@
 
 @implementation ReleaseSearch
 
--(void) GetSearchQuery
+-(void) buildSearchQuery
 {
-    [super GetSearchQuery];
-    [self.queryBuilder addPair:@"type" value:@"release"];
+    [super buildSearchQuery];
+    
+    [self setSearchParameter:@"type" parameterString:@"release"];
 }
 
--(SearchResult *) GetSearchResult:(NSDictionary *)jsonData
+-(SearchResult *) getSearchResult:(NSDictionary *)jsonData
 {
     ReleaseSearchResult *sr = [ReleaseSearchResult new];
     sr.identifier = (long)[jsonData objectForKey:@"id"];
@@ -25,7 +26,6 @@
     sr.title = [jsonData objectForKey:@"title"];
     sr.thumb = [jsonData objectForKey:@"thumb"];
     sr.url = [jsonData objectForKey:@"url"];
-    
     sr.styles = [jsonData objectForKey:@"style"];
     sr.formats = [jsonData objectForKey:@"format"];
     sr.country = [jsonData objectForKey:@"country"];

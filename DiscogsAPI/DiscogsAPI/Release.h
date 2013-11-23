@@ -26,6 +26,6 @@
 @property NSString *releaseUrl;
 @property NSString *country;
 
-+(Release *) GetRelease:(NSDictionary *)jsonData;
++(Release *) getRelease:(NSDictionary *)jsonData;
 
 @end

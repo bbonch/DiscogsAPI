@@ -11,13 +11,14 @@
 
 @implementation ArtistSearch
 
--(void) GetSearchQuery
+-(void) buildSearchQuery
 {
-    [super GetSearchQuery];
-    [self.queryBuilder addPair:@"type" value:@"artist"];
+    [super buildSearchQuery];
+    
+    [self setSearchParameter:@"type" parameterString:@"artist"];
 }
 
--(SearchResult *) GetSearchResult:(NSDictionary *)jsonData
+-(SearchResult *) getSearchResult:(NSDictionary *)jsonData
 {
     ArtistSearchResult *sr = [ArtistSearchResult new];
     sr.identifier = (int)[jsonData objectForKey:@"id"];
