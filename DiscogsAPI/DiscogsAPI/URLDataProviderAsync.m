@@ -12,11 +12,11 @@ static NSString * const EventName = @"DataHasLoaded";
 
 @implementation URLDataProviderAsync
 
-@synthesize dataLoaded;
-@synthesize observer;
 @synthesize errorFromResponse;
 @synthesize receivedData;
 @synthesize responceCode;
+@synthesize observer;
+@synthesize dataLoaded;
 
 -(void) getDataWithUrl:(NSURL *)url
 {
@@ -27,12 +27,9 @@ static NSString * const EventName = @"DataHasLoaded";
     
     [[NSNotificationCenter defaultCenter] addObserver:self.observer selector:self.dataLoaded name:EventName object:self];
     
-    NSURLRequest *request =
-    [NSURLRequest requestWithURL:url
-                  cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                  timeoutInterval:10.0];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     self.receivedData = [NSMutableData data];
-    self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
+    connection = [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
 -(void) getDataWithString:(NSString *)stringUrl

@@ -10,7 +10,8 @@
 #import "DataProviderDelegate.h"
 
 @interface URLDataProviderAsync : NSObject<DataProviderDelegate,NSURLConnectionDataDelegate>
-
-@property (nonatomic,strong) NSURLConnection *connection;
+{
+    @private NSURLConnection *connection;
+}
 
 @end

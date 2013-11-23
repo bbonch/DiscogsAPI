@@ -31,7 +31,7 @@
 {
     if ([key length] == 0)
     {
-        @throw [[NSException new] initWithName:@"AurgumentException" reason:@"Key and value mustn't be empty" userInfo:nil];
+        @throw [[NSException new] initWithName:@"AurgumentException" reason:@"Key mustn't be empty" userInfo:nil];
     }
     
     if ([self.query length] == 0)

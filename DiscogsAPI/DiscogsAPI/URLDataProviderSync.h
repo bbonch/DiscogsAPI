@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "DataProviderDelegate.h"
 
+NSString * const EventName;
+
 @interface URLDataProviderSync : NSObject<DataProviderDelegate>
 
 @end

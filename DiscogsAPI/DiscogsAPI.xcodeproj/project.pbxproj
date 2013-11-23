@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A9CBA68184143F1003C4AE9 /* SenAsyncTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CBA67184143F1003C4AE9 /* SenAsyncTestCase.m */; };
 		1F1CAAC417A5C84E00710540 /* QueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CAAC317A5C84E00710540 /* QueryResult.m */; };
 		1F75FFFA17A6EB3400159A98 /* QueryResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F1CAAC217A5C84D00710540 /* QueryResult.h */; };
 		1FB5A62717A45304006281C3 /* ReleaseAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5A62617A45304006281C3 /* ReleaseAPITests.m */; };
@@ -95,6 +96,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A9CBA66184143F1003C4AE9 /* SenAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenAsyncTestCase.h; sourceTree = "<group>"; };
+		0A9CBA67184143F1003C4AE9 /* SenAsyncTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenAsyncTestCase.m; sourceTree = "<group>"; };
 		1F1CAAC217A5C84D00710540 /* QueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResult.h; sourceTree = "<group>"; };
 		1F1CAAC317A5C84E00710540 /* QueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResult.m; sourceTree = "<group>"; };
 		1FB5A62617A45304006281C3 /* ReleaseAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseAPITests.m; sourceTree = "<group>"; };
@@ -178,6 +181,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A9CBA65184143DD003C4AE9 /* Async */ = {
+			isa = PBXGroup;
+			children = (
+				0A9CBA66184143F1003C4AE9 /* SenAsyncTestCase.h */,
+				0A9CBA67184143F1003C4AE9 /* SenAsyncTestCase.m */,
+			);
+			name = Async;
+			sourceTree = "<group>";
+		};
 		1FB5A62417A452C6006281C3 /* ReleaseTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +279,7 @@
 		844304D11714079300EBCBA7 /* DiscogsAPITests */ = {
 			isa = PBXGroup;
 			children = (
+				0A9CBA65184143DD003C4AE9 /* Async */,
 				844304E11714141800EBCBA7 /* DatabaseTests */,
 				844304DF171413D800EBCBA7 /* UtilsTests */,
 				844304D21714079300EBCBA7 /* Supporting Files */,
@@ -550,6 +563,7 @@
 				84A1E8D417666085006CCBF4 /* SearchAPITests.m in Sources */,
 				84A8F9801797390000768036 /* LabelAPITests.m in Sources */,
 				84AAC1A017A06F67003EC61E /* ArtistAPITests.m in Sources */,
+				0A9CBA68184143F1003C4AE9 /* SenAsyncTestCase.m in Sources */,
 				1FB5A62717A45304006281C3 /* ReleaseAPITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 #import "URLDataProviderSync.h"
 
-static NSString * const EventName = @"DataHasLoaded";
+NSString * const EventName = @"DataHasLoaded";
 
 @implementation URLDataProviderSync
 

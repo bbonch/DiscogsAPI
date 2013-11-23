@@ -11,8 +11,10 @@
 #import "Search.h"
 #import "ArtistSearch.h"
 #import "URLDataProviderSync.h"
+#import "URLDataProviderAsync.h"
+#import "SenAsyncTestCase.h"
 
-@interface SearchTests : SenTestCase
+@interface SearchTests : SenAsyncTestCase
 
 @end
 
@@ -48,13 +50,13 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
     //Arrange
     Search *artistSearch = [ArtistSearch new];
     [artistSearch GetSearchQuery];
-    [[artistSearch queryBuilder] addPair:@"per_page" value:[NSString stringWithFormat:@"%i",11]];
-    [[artistSearch queryBuilder] addPair:@"page" value:[NSString stringWithFormat:@"%i",1]];
+    QueryBuilder *queryBuilder = [artistSearch queryBuilder];
+    [queryBuilder addPair:@"per_page" value:[NSString stringWithFormat:@"%i",11]];
+    [queryBuilder addPair:@"page" value:[NSString stringWithFormat:@"%i",1]];
     id<DataProviderDelegate> provider = [URLDataProviderSync new];
     
     //Act
-    [artistSearch GetSearchQuery];
-    NSString *searchQuery = [[artistSearch queryBuilder] query];
+    NSString *searchQuery = [queryBuilder query];
     [provider getDataWithString:searchQuery];
     NSMutableData *jsonData = [provider receivedData];
     id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
@@ -68,7 +70,33 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
 
 -(void) testGetArtistSearchResultAsync
 {
+    //Arrange
+    Search *artistSearch = [ArtistSearch new];
+    [artistSearch GetSearchQuery];
+    QueryBuilder *queryBuilder = [artistSearch queryBuilder];
+    [queryBuilder addPair:@"per_page" value:[NSString stringWithFormat:@"%i",11]];
+    [queryBuilder addPair:@"page" value:[NSString stringWithFormat:@"%i",1]];
+    id<DataProviderDelegate> provider = [URLDataProviderAsync new];
+    [provider setObserver:self];
+    [provider setDataLoaded:@selector(dataLoaded)];
     
+    //Act
+    NSString *searchQuery = [queryBuilder query];
+    [provider getDataWithString:searchQuery];
+    [self waitForTimeoutInt:1];
+    NSMutableData *jsonData = [provider receivedData];
+    id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSDictionary *jsonDictionary = object;
+    NSArray *results = [jsonDictionary objectForKey:@"results"];
+    SearchResult *searchResult = [artistSearch GetSearchResult:[results objectAtIndex:0]];
+    
+    //Assert
+    STAssertNotNil(searchResult.title, @"");
+}
+
+-(void) dataLoaded
+{
+    [self notify:SenAsyncTestCaseStatusSucceeded];
 }
 
 @end
