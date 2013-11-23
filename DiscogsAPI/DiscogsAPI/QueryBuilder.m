@@ -16,9 +16,15 @@
 
 @implementation QueryBuilder
 
--(void) initWithQuery:(NSString *)initQuery
+-(id) initWithQuery:(NSString *)initQuery
 {
-    self.query = [[NSMutableString alloc] initWithString:initQuery];
+    self = [super init];
+    if (self)
+    {
+        _query = [[NSMutableString alloc] initWithString:initQuery];
+    }
+    
+    return self;
 }
 
 -(void) addPair:(NSString *)key value:(NSString *)value

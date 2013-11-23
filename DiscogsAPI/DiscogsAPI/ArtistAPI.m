@@ -43,10 +43,9 @@ NSString * const BaseArtistUrl = @"http://api.discogs.com/artists/";
 
 +(NSMutableArray *) GetReleasesForArtist:(NSString *) releasesUrl withPagination:(Pagination *) pagination
 {
-    QueryBuilder *queryBuilder = [QueryBuilder new];
     NSMutableString *url = [[NSMutableString alloc] initWithString:releasesUrl];
     [url appendString:@"?"];
-    [queryBuilder initWithQuery:url];
+    QueryBuilder *queryBuilder = [[QueryBuilder alloc] initWithQuery:url];
     int perPage = pagination == nil ? 50 : pagination.perPage;
     int page = pagination == nil ? 1 : pagination.page;
     [queryBuilder addPair:@"per_page" value:[NSString stringWithFormat:@"%i",perPage]];

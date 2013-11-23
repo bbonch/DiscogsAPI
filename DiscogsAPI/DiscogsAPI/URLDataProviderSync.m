@@ -18,12 +18,10 @@ static NSString * const EventName = @"DataHasLoaded";
 
 -(void) getDataWithUrl:(NSURL *)url
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest new];
-    request.HTTPMethod = @"GET";
-    request.URL = url;
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     NSError *errorLocal = nil;
-    NSHTTPURLResponse *responceCodeLocal = nil;
+    NSHTTPURLResponse *responceCodeLocal = nil; 
     
     receivedData = (NSMutableData *)[NSURLConnection sendSynchronousRequest:request returningResponse:&responceCodeLocal error:&errorLocal];
     errorFromResponse = errorLocal;

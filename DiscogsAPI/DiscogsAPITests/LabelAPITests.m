@@ -46,7 +46,7 @@
     NSString *url = @"http://api.discogs.com/ladwebels/234";
     
     //Assert
-    STAssertThrows([LabelAPI GetLabelByUrl:url], @"Url is correct!");
+    STAssertNil([LabelAPI GetLabelByUrl:url], @"Url is correct!");
 }
 
 -(void) testGetLabelByIncorrectId
@@ -55,7 +55,7 @@
     long labelId = -1;
     
     //Assert
-    STAssertThrows([LabelAPI GetLabelById:labelId], @"Id is correct!");
+    STAssertNil([LabelAPI GetLabelById:labelId], @"Id is correct!");
 }
 
 -(void) testGetLabelReleases

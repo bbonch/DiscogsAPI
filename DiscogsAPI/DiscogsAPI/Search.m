@@ -30,8 +30,6 @@ NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
 
 -(void) GetSearchQuery
 {
-    [self.queryBuilder initWithQuery:BaseSearchUrl];
-    
     [self SetSearchParameter:@"q" parameterString:self.q];
     
     [self SetSearchParameter:@"title" parameterString:self.title];
@@ -109,7 +107,7 @@ NSString * const BaseSearchUrl = @"http://api.discogs.com/database/search?";
 {
     if (queryBuilder == nil)
     {
-        queryBuilder = [QueryBuilder new];
+        queryBuilder = [[QueryBuilder alloc] initWithQuery:BaseSearchUrl];
     }
     
     return queryBuilder;

@@ -18,10 +18,9 @@
 -(void) testQueryBuilderInit
 {
     //Arrange
-    QueryBuilder *queryBuilder = [QueryBuilder new];
-    
+    QueryBuilder *queryBuilder = [[QueryBuilder alloc] initWithQuery:@"http://api.discogs.com/database/search?"];
+
     //Act
-    [queryBuilder initWithQuery:@"http://api.discogs.com/database/search?"];
     NSString *query = [queryBuilder query];
     
     //Assert
@@ -31,8 +30,7 @@
 -(void) testQueryBuilderAddPair
 {
     //Arrange
-    QueryBuilder *queryBuilder = [QueryBuilder new];
-    [queryBuilder initWithQuery:@"http://api.discogs.com/database/search?"];
+    QueryBuilder *queryBuilder = [[QueryBuilder alloc] initWithQuery:@"http://api.discogs.com/database/search?"];
     
     //Act
     [queryBuilder addPair:@"key1" value:@"value1"];
@@ -46,8 +44,7 @@
 -(void) testQueryBuilderCatchStateBadFormatException
 {
     //Arrange
-    QueryBuilder *queryBuilder = [QueryBuilder new];
-    [queryBuilder initWithQuery:@"http://api.discogs.com/database/search"];
+    QueryBuilder *queryBuilder = [[QueryBuilder alloc] initWithQuery:@"http://api.discogs.com/database/search"];
     
     //Assert
     STAssertThrows([queryBuilder addPair:@"key" value:@"value"], @"");

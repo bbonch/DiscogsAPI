@@ -45,8 +45,7 @@ NSString * const BaseReleaseUrl = @"http://api.discogs.com/releases/";
 
 +(QueryResult *) GetReleasesByUrl:(NSString *) releasesUrl withPagination:(Pagination *) pagination
 {
-    QueryBuilder * queryBuilder = [QueryBuilder new];
-    [queryBuilder initWithQuery:releasesUrl];
+    QueryBuilder * queryBuilder = [[QueryBuilder alloc] initWithQuery:releasesUrl];
     [queryBuilder addPair:@"per_page" value:[NSString stringWithFormat:@"%i",pagination.perPage]];
     [queryBuilder addPair:@"page" value:[NSString stringWithFormat:@"%i",pagination.page]];
     releasesUrl = [queryBuilder query];

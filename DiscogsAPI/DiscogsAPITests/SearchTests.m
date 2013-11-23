@@ -43,7 +43,7 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
     STAssertEqualObjects(testSearchQuery, result, @"");
 }
 
--(void) testGetArtistSearchResult
+-(void) testGetArtistSearchResultSync
 {
     //Arrange
     Search *artistSearch = [ArtistSearch new];
@@ -64,6 +64,11 @@ NSString * const testSearchQuery = @"http://api.discogs.com/database/search?type
     
     //Assert
     STAssertNotNil(searchResult.title, @"");
+}
+
+-(void) testGetArtistSearchResultAsync
+{
+    
 }
 
 @end

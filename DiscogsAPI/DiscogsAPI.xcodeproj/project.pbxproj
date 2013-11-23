@@ -218,9 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				844304BD1714012C00EBCBA7 /* Utils */,
-				844304BB1714009D00EBCBA7 /* User */,
 				84E53C7017161708007F209E /* Database */,
-				844304B91714008A00EBCBA7 /* Marketplace */,
 				844304AD1713FC3600EBCBA7 /* Supporting Files */,
 			);
 			path = DiscogsAPI;
@@ -232,13 +230,6 @@
 				844304AE1713FC3600EBCBA7 /* DiscogsAPI-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		844304B91714008A00EBCBA7 /* Marketplace */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Marketplace;
 			sourceTree = "<group>";
 		};
 		844304BA1714009200EBCBA7 /* Search */ = {
@@ -255,13 +246,6 @@
 				849FFF9A175E873900AD1EB1 /* SearchAPI.m */,
 			);
 			name = Search;
-			sourceTree = "<group>";
-		};
-		844304BB1714009D00EBCBA7 /* User */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = User;
 			sourceTree = "<group>";
 		};
 		844304BD1714012C00EBCBA7 /* Utils */ = {
@@ -283,9 +267,7 @@
 		844304D11714079300EBCBA7 /* DiscogsAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				844304E21714142800EBCBA7 /* MarketplaceTests */,
 				844304E11714141800EBCBA7 /* DatabaseTests */,
-				844304E0171413F400EBCBA7 /* UserTests */,
 				844304DF171413D800EBCBA7 /* UtilsTests */,
 				844304D21714079300EBCBA7 /* Supporting Files */,
 			);
@@ -310,13 +292,6 @@
 			name = UtilsTests;
 			sourceTree = "<group>";
 		};
-		844304E0171413F400EBCBA7 /* UserTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = UserTests;
-			sourceTree = "<group>";
-		};
 		844304E11714141800EBCBA7 /* DatabaseTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,13 +301,6 @@
 				84E53C711716173C007F209E /* SearchTests */,
 			);
 			name = DatabaseTests;
-			sourceTree = "<group>";
-		};
-		844304E21714142800EBCBA7 /* MarketplaceTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = MarketplaceTests;
 			sourceTree = "<group>";
 		};
 		849D028E174FC9EB00265372 /* Common */ = {

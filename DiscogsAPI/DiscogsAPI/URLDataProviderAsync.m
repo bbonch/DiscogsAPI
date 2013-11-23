@@ -51,13 +51,13 @@ static NSString * const EventName = @"DataHasLoaded";
     [self.receivedData appendData:data];
 }
 
-/*- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     self.receivedData = nil;
     self.errorFromResponse = error;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EventName object:self];
-}*/
+}
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {

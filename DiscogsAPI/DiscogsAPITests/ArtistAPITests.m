@@ -34,7 +34,7 @@
     NSString *url = @"http://api.discogs.com/artistsdef/234";
     
     //Assert
-    STAssertThrows([ArtistAPI GetArtistByUrl:url], @"Url is correct!");}
+    STAssertNil([ArtistAPI GetArtistByUrl:url], @"Url is correct!");}
 
 -(void) testGetArtistReleases
 {

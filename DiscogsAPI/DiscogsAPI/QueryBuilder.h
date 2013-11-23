@@ -12,7 +12,7 @@
 
 @property (readonly) NSMutableString *query;
 
--(void) initWithQuery:(NSString *)initQuery;
+-(id) initWithQuery:(NSString *)initQuery;
 -(void) addPair:(NSString *)key value:(NSString *)value;
 
 @end
